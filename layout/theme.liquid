@@ -1,14 +1,45 @@
 <!doctype html>
 <html lang="es">
   <head>
+    <!-- Meta etiquetas esenciales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ shop.name }} - {{ page_title }}</title>
+    <meta name="description" content="AuraGK - Tienda oficial con estilo galáctico. Compra ahora productos únicos.">
+    <meta name="author" content="{{ shop.name }}">
+
+    <!-- Título dinámico -->
+    <title>{{ page_title }} | {{ shop.name }}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ 'favicon.ico' | asset_url }}" type="image/x-icon">
+
+    <!-- Fuentes personalizadas -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}" media="all">
+
+    <!-- Etiqueta obligatoria de Shopify -->
     {{ content_for_header }}
-    <link href="{{ 'styles.css' | asset_url }}" rel="stylesheet">
   </head>
+
   <body>
-    {{ content_for_layout }}
+    <!-- Encabezado accesible -->
+    <header role="banner" aria-label="Encabezado principal">
+      <!-- Aquí podrías incluir un logo o barra superior en el futuro -->
+    </header>
+
+    <!-- Contenido principal -->
+    <main role="main" id="MainContent" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    <!-- Pie de página (opcional) -->
+    <footer role="contentinfo" aria-label="Pie de página">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JS principal -->
     <script src="{{ 'script.js' | asset_url }}"></script>
   </body>
 </html>
