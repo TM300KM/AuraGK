@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Camiseta AuraGK",
+    "description": "Camiseta 100% algodón, edición limitada.",
+    "price": 19.99,
+    "image": "assets/images/camiseta.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Sudadera AuraGK",
+    "description": "Sudadera cómoda con capucha.",
+    "price": 39.99,
+    "image": "assets/images/sudadera.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Taza AuraGK",
+    "description": "Taza de cerámica para café o té.",
+    "price": 9.99,
+    "image": "assets/images/taza.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Gorra AuraGK",
+    "description": "Gorra ajustable para cualquier ocasión.",
+    "price": 14.99,
+    "image": "assets/images/gorra.jpg"
+  }
+]
