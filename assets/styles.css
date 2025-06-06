@@ -113,7 +113,7 @@ body {
 
 /* Título centrado y adaptativo */
 h1 {
-  font-size: 4rem;
+  font-size: 5rem;
   text-shadow: 0 0 10px var(--color-blue-glow);
   margin: 0;
   position: relative;
