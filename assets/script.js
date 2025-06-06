@@ -107,4 +107,5 @@ toggleBtn.addEventListener('click', () => {
   const expanded = toggleBtn.getAttribute('aria-expanded') === 'true' || false;
   toggleBtn.setAttribute('aria-expanded', !expanded);
   menuList.classList.toggle('active');
+  menu.style.transform = `translateY(${expanded ? '0' : '-100%'})`;
 });
