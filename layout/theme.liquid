@@ -17,6 +17,7 @@
   </head>
 
   <body>
+    <!-- Fondo animado -->
     <div class="background-animation">
       <div class="stars"></div>
       <div class="diamonds"></div>
@@ -51,6 +52,7 @@
     <!-- Scripts -->
     <script src="{{ 'script.js' | asset_url }}"></script>
     <script>
+      // Función que se ejecuta cuando la ventana carga
       window.addEventListener('load', function () {
         // Mostrar menú con transición
         const menu = document.getElementById('menu');
@@ -104,6 +106,7 @@
         }, 15000);
       });
 
+      // Configuración del lienzo para el fondo tecnológico
       const canvas = document.getElementById('tech-canvas');
       const ctx = canvas.getContext('2d');
 
@@ -153,6 +156,7 @@
       resize();
       draw();
 
+      // Funcionalidad del botón de menú
       const toggleBtn = document.getElementById('menu-toggle');
       const menuList = document.getElementById('menu-list');
 
