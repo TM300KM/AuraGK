@@ -210,18 +210,18 @@ body {
   padding: 1rem 2rem;
   border-radius: 15px;
   box-shadow: 0 0 15px #13dca0aa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #menu-toggle {
-  display: none;
   font-size: 2rem;
   background: none;
   border: none;
   color: white;
   cursor: pointer;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  display: none;
 }
 
 .menu-list {
@@ -250,6 +250,8 @@ body {
   #menu {
     width: 90%;
     padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   #menu-toggle {
@@ -259,13 +261,24 @@ body {
   .menu-list {
     display: none;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 1rem;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 1rem;
     border-radius: 12px;
+    width: 100%;
   }
 
   .menu-list.active {
     display: flex;
+  }
+
+  .menu-list li {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .menu-list li a {
+    font-size: 1.2rem;
   }
 }
