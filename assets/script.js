@@ -22,7 +22,7 @@ window.addEventListener('load', function () {
   if (title) {
     const fullText = title.textContent;
     title.textContent = ''; // Vaciar para la animación
-    title.style.borderRight = '2px solid #13dca0'; // barra cursor
+    title.style.borderRight = '2px solidrgba(59, 14, 219, 0.66)'; // barra cursor
 
     let index = 0;
     const speed = 70; // ms entre letras
