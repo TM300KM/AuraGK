@@ -97,3 +97,7 @@ window.addEventListener('resize', () => {
 
 resize();
 draw();
+
+toggleBtn.addEventListener('click', () => {
+  menuList.classList.toggle('active');
+});

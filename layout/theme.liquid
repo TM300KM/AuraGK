@@ -14,109 +14,35 @@
     {{ content_for_header }}
   </head>
 
-  <body>
-    <!-- Fondo animado -->
-    <div class="background-animation">
-      <div class="stars"></div>
-      <div class="diamonds"></div>
-      <canvas id="tech-canvas"></canvas>
-    </div>
+<body>
+  <div class="background-animation">
+    <div class="stars"></div>
+    <div class="diamonds"></div>
+    <canvas id="tech-canvas"></canvas>
+  </div>
 
-    <!-- Menú responsive -->
-    <nav id="menu">
-      <button id="menu-toggle" aria-label="Abrir menú">&#9776;</button>
-      <ul class="menu-list" id="menu-list">
-        <li><a href="#tienda">Tienda</a></li>
-        <li><a href="#catalogo">Catálogo</a></li>
-        <li><a href="#carrito">Carrito</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+  <!-- Menú -->
+  <nav id="menu">
+    <button id="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+    <ul class="menu-list" id="menu-list">
+      <li><a href="#tienda">Tienda</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#carrito">Carrito</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
 
-    <!-- Contenido dinámico de Shopify -->
-    <main>
-      {{ content_for_layout }}
-    </main>
+  {{ content_for_layout }}
 
-    <!-- Scripts -->
-    <script src="{{ 'script.js' | asset_url }}"></script>
-    <script>
-      // Fondo animado canvas
-      const canvas = document.getElementById('tech-canvas');
-      const ctx = canvas.getContext('2d');
-      let width, height;
-      let lines = [];
+  <!-- Scripts -->
+  <script src="{{ 'script.js' | asset_url }}"></script>
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const menuList = document.getElementById('menu-list');
 
-      function init() {
-        resize();
-        createLines();
-        animate();
-      }
-
-      function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      }
-
-      window.addEventListener('resize', () => {
-        resize();
-        lines = [];
-        createLines();
-      });
-
-      function createLines() {
-        for (let i = 0; i < 30; i++) {
-          lines.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            length: 100 + Math.random() * 100,
-            speed: 0.3 + Math.random() * 0.7,
-            angle: Math.random() * Math.PI * 2,
-            opacity: 0.1 + Math.random() * 0.2,
-          });
-        }
-      }
-
-      function animate() {
-        ctx.clearRect(0, 0, width, height);
-        lines.forEach(line => {
-          ctx.save();
-          ctx.translate(line.x, line.y);
-          ctx.rotate(line.angle);
-          const gradient = ctx.createLinearGradient(0, 0, line.length, 0);
-          gradient.addColorStop(0, 'rgba(95,168,211,' + line.opacity + ')');
-          gradient.addColorStop(1, 'rgba(144,195,232,0)');
-          ctx.strokeStyle = gradient;
-          ctx.lineWidth = 1.5;
-          ctx.beginPath();
-          ctx.moveTo(0, 0);
-          ctx.lineTo(line.length, 0);
-          ctx.stroke();
-          ctx.restore();
-
-          line.x += Math.cos(line.angle) * line.speed;
-          line.y += Math.sin(line.angle) * line.speed;
-
-          if (line.x > width + line.length) line.x = -line.length;
-          if (line.x < -line.length) line.x = width + line.length;
-          if (line.y > height + line.length) line.y = -line.length;
-          if (line.y < -line.length) line.y = height + line.length;
-        });
-
-        requestAnimationFrame(animate);
-      }
-
-      init();
-
-      // Menú hamburguesa
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggleBtn = document.getElementById('menu-toggle');
-        const menuList = document.getElementById('menu-list');
-
-        toggleBtn.addEventListener('click', () => {
-          menuList.classList.toggle('active');
-        });
-      });
-    </script>
-  </body>
+    toggleBtn.addEventListener('click', () => {
+      menuList.classList.toggle('active');
+    });
+  </script>
+</body>
 </html>
