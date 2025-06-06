@@ -290,7 +290,7 @@ h1 {
 }
 
 /* Dispositivos pequeños */
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
   .hero-section {
     padding: 2rem;
   }
