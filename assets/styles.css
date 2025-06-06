@@ -14,7 +14,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-heading);
-  background: linear-gradient(to bottom right, var(--color-white), #f5f7fa);
+  background: linear-gradient(to bottom right, var(--color-white), #395eda);
   color: var(--color-metal-blue);
   display: flex;
   justify-content: center;
@@ -135,7 +135,7 @@ h1 {
 }
 
 :root {
-  --color-metal-blue: #5fa8d3;
+  --color-metal-blue: #5fd36e;
   --color-blue-glow: #90c3e8;
 }
 
