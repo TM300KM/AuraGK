@@ -104,7 +104,7 @@ body {
   align-items: center;
   min-height: 100svh;
   width: 100%;
-  padding-inline: 1rem;
+  padding: 1rem;
   position: relative;
   z-index: 1;
   text-align: center;
@@ -118,7 +118,9 @@ body {
 
 .hero-section .container {
   max-width: 95%;
-  padding-inline: 1rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .animated-title,
@@ -158,7 +160,7 @@ body {
 
 @media (max-width: 768px) {
   .hero-section {
-    padding-inline: 1rem;
+    padding: 1rem;
     padding-block: 2rem;
   }
 
