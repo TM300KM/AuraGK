@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ shop.name }}</title>
-     <meta name="description" content="AuraGK: Tienda de tecnología y estilo futurista. Descubre productos únicos y vive la experiencia digital.">
+    <meta name="description" content="AuraGK: Tienda de tecnología y estilo futurista. Descubre productos únicos y vive la experiencia digital.">
     <meta name="theme-color" content="#05113f">
 
     <!-- Fuentes -->
@@ -14,39 +14,41 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}" />
     {{ content_for_header }}
-    </head>
+  </head>
 
-<body>
-  <div class="background-animation">
-    <div class="stars"></div>
-    <div class="diamonds"></div>
-    <canvas id="tech-canvas"></canvas>
-  </div>
+  <body>
+    <div class="background-animation">
+      <div class="stars"></div>
+      <div class="diamonds"></div>
+      <canvas id="tech-canvas"></canvas>
+    </div>
 
-  <!-- Menú -->
-  <nav id="menu">
-  <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-list">&#9776;</button>
-    <ul class="menu-list" id="menu-list">
-      <li><a href="#tienda">Tienda</a></li>
-      <li><a href="#catalogo">Catálogo</a></li>
-      <li><a href="#carrito">Carrito</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
+    <!-- Menú -->
+    <nav id="menu">
+      <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-list">&#9776;</button>
+      <ul class="menu-list" id="menu-list">
+        <li><a href="#tienda">Tienda</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#carrito">Carrito</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
 
-  {{ content_for_layout }}
+    {{ content_for_layout }}
 
-  <!-- Scripts -->
-  <script src="{{ 'script.js' | asset_url }}"></script>
-  <script>
-    const toggleBtn = document.getElementById('menu-toggle');
-    const menuList = document.getElementById('menu-list');
+    <!-- Scripts -->
+    <script src="{{ 'script.js' | asset_url }}"></script>
+    <script>
+      const toggleBtn = document.getElementById('menu-toggle');
+      const menuList = document.getElementById('menu-list');
 
-    toggleBtn.addEventListener('click', () => {
-      menuList.classList.toggle('active');
-    });
-  </script>
-</body>
+      toggleBtn.addEventListener('click', () => {
+        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', !isExpanded);
+        menuList.classList.toggle('active', !isExpanded);
+      });
+    </script>
+  </body>
 </html>
 <noscript>
   <style>
