@@ -6,14 +6,17 @@
   --color-blue-glow: #2939aed3;
   --color-diamond: #f6000094;
   --color-star: #ffffff;
+  --color-text: #ffffff;
+  --color-background: #0800ff;
+  --transition-duration: 0.3s;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: var(--font-heading);
-  background: linear-gradient(to bottom right, var(--color-white), #0800ff);
-  color: var(--color-metal-blue);
+  background: var(--color-background);
+  color: var(--color-text);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,6 +25,7 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 1;
+  transition: background var(--transition-duration) ease;
 }
 
 .background-animation {
@@ -100,11 +104,12 @@ body {
 
 .hero-section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100svh;
   width: 100%;
-  padding: 1rem;
+  padding: 2rem 1rem;
   position: relative;
   z-index: 1;
   text-align: center;
@@ -161,7 +166,6 @@ body {
 @media (max-width: 768px) {
   .hero-section {
     padding: 1rem;
-    padding-block: 2rem;
   }
 
   .hero-section h1 {
@@ -239,7 +243,7 @@ body {
   font-family: var(--font-heading);
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color var(--transition-duration) ease;
 }
 
 .menu-list li a:hover {
