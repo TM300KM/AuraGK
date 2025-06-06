@@ -19,8 +19,7 @@ body {
   background: var(--color-background);
   color: var(--color-text);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   min-height: 100svh;
   text-align: center;
   overflow: hidden;
@@ -181,11 +180,12 @@ body {
   border: none;
   border-radius: 5px;
   text-decoration: none;
-  transition: background-color var(--transition-duration) ease;
+  transition: background-color var(--transition-duration) ease, transform var(--transition-duration) ease;
 }
 
 .cta-button:hover {
   background-color: var(--color-metal-blue);
+  transform: scale(1.05);
 }
 
 #menu {
@@ -259,6 +259,38 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    text-shadow: 0 0 3px #00fff7, 0 0 6px #00bfff;
+  }
+
+  .diamonds::before,
+  .diamonds::after {
+    width: 15px;
+    height: 15px;
+  }
+
+  .stars {
+    box-shadow:
+      10vw 20vh var(--color-star),
+      30vw 40vh var(--color-star),
+      70vw 15vh var(--color-star),
+      85vw 60vh var(--color-star);
+  }
+
+  .sub-title {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
   #menu {
     width: 90%;
     padding: 1rem;
