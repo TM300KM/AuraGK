@@ -9,12 +9,16 @@ window.addEventListener('load', function () {
   bg.style.width = '100%';
 
   // Generar estrellas dinámicamente
-  for (let i = 0; i < 100; i++) {
+  const createStar = () => {
     const star = document.createElement('div');
     star.classList.add('star');
     star.style.top = `${Math.random() * 100}%`;
     star.style.left = `${Math.random() * 100}%`;
     document.getElementById('animated-bg').appendChild(star);
+  };
+
+  for (let i = 0; i < 100; i++) {
+    createStar();
   }
 
   // Efecto máquina de escribir para el título h1
@@ -22,12 +26,12 @@ window.addEventListener('load', function () {
   if (title) {
     const fullText = title.textContent;
     title.textContent = ''; // Vaciar para la animación
-    title.style.borderRight = '2px solidrgba(59, 14, 219, 0.66)'; // barra cursor
+    title.style.borderRight = '2px solid rgba(59, 14, 219, 0.66)'; // barra cursor
 
     let index = 0;
     const speed = 70; // ms entre letras
 
-    function typeWriter() {
+    const typeWriter = () => {
       if (index < fullText.length) {
         title.textContent += fullText.charAt(index);
         index++;
@@ -36,7 +40,7 @@ window.addEventListener('load', function () {
         // Quitar barra de cursor cuando termina
         title.style.borderRight = 'none';
       }
-    }
+    };
 
     typeWriter();
   }
@@ -53,7 +57,7 @@ const ctx = canvas.getContext('2d');
 let width, height;
 let points = [];
 
-function resize() {
+const resize = () => {
   width = canvas.width = window.innerWidth;
   height = canvas.height = window.innerHeight;
 
@@ -65,9 +69,9 @@ function resize() {
       points.push({ x: x + (Math.random() * 50 - 25), y: y + (Math.random() * 50 - 25) });
     }
   }
-}
+};
 
-function draw() {
+const draw = () => {
   ctx.clearRect(0, 0, width, height);
 
   // Dibuja líneas entre puntos cercanos
@@ -78,7 +82,7 @@ function draw() {
       const dist = Math.sqrt(dx * dx + dy * dy);
 
       if (dist < 150) {
-        ctx.strokeStyle = 'rgba(0, 255, 153, ' + (1 - dist / 150) + ')';
+        ctx.strokeStyle = `rgba(0, 255, 153, ${1 - dist / 150})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(points[i].x, points[i].y);
@@ -89,18 +93,18 @@ function draw() {
   }
 
   requestAnimationFrame(draw);
-}
+};
 
-window.addEventListener('resize', () => {
-  resize();
-});
+window.addEventListener('resize', resize);
 
 resize();
 draw();
+
+const toggleBtn = document.getElementById('menu-toggle');
+const menuList = document.getElementById('menu-list');
 
 toggleBtn.addEventListener('click', () => {
   const expanded = toggleBtn.getAttribute('aria-expanded') === 'true' || false;
   toggleBtn.setAttribute('aria-expanded', !expanded);
   menuList.classList.toggle('active');
 });
-
