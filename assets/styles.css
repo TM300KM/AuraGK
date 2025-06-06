@@ -14,7 +14,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-heading);
-  background: linear-gradient(to bottom right, var(--color-white), #395eda);
+  background: linear-gradient(to bottom right, var(--color-white), #00ff8c);
   color: var(--color-metal-blue);
   display: flex;
   justify-content: center;
