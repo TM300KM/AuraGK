@@ -24,23 +24,22 @@
       <canvas id="tech-canvas"></canvas>
     </div>
 
-    <!-- Menú -->
-    <nav id="menu">
-      <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-list">&#9776;</button>
-      <ul class="menu-list" id="menu-list">
-        <li><a href="#tienda">Tienda</a></li>
-        <li><a href="#catalogo">Catálogo</a></li>
-        <li><a href="#carrito">Carrito</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-
     <!-- Sección de Hero -->
     <section class="hero-section">
       <div class="hero-content">
         <h1 class="animated-title">AuraGK</h1>
         <p class="sub-title">Tienda de tecnología y estilo futurista. Descubre productos únicos y vive la experiencia digital.</p>
         <a href="#tienda" class="cta-button">Explorar Tienda</a>
+
+        <!-- Menú -->
+        <nav id="menu">
+          <ul class="menu-list" id="menu-list">
+            <li><a href="#tienda">Tienda</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#carrito">Carrito</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
       </div>
     </section>
 
@@ -155,17 +154,6 @@
 
       resize();
       draw();
-
-      // Funcionalidad del botón de menú
-      const toggleBtn = document.getElementById('menu-toggle');
-      const menuList = document.getElementById('menu-list');
-
-      toggleBtn.addEventListener('click', () => {
-        const expanded = toggleBtn.getAttribute('aria-expanded') === 'true' || false;
-        toggleBtn.setAttribute('aria-expanded', !expanded);
-        menuList.classList.toggle('active');
-        menu.style.transform = `translateY(${expanded ? '-100%' : '0'})`;
-      });
     </script>
   </body>
 </html>

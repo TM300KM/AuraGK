@@ -189,34 +189,12 @@ body {
 }
 
 #menu {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 1rem 2rem;
-  border-radius: 15px;
-  box-shadow: 0 0 15px #13dca0aa;
+  margin-top: 2rem; /* Añade espacio entre el título y el menú */
+  width: 100%; /* Asegura que el menú ocupe toda la pantalla en dispositivos móviles */
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform var(--transition-duration) ease;
-  width: 100%; /* Asegura que el menú ocupe toda la pantalla en dispositivos móviles */
-}
-
-#menu-toggle {
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  display: none;
-  transition: transform var(--transition-duration) ease;
-}
-
-#menu-toggle:focus {
-  outline: none;
+  flex-direction: column;
 }
 
 .menu-list {
@@ -227,13 +205,6 @@ body {
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
-  height: 0; /* Ocultar la lista inicialmente */
-  overflow: hidden; /* Ocultar el desbordamiento */
-  transition: height var(--transition-duration) ease; /* Animación suave al cambiar la altura */
-}
-
-.menu-list.active {
-  height: auto; /* Mostrar la lista cuando esté activa */
 }
 
 .menu-list li a {
@@ -300,31 +271,14 @@ body {
   }
 
   #menu {
+    margin-top: 1.5rem; /* Ajusta el espacio entre el título y el menú en dispositivos móviles */
     width: 90%;
     padding: 1rem;
-    flex-direction: column;
-    align-items: flex-start;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  #menu-toggle {
-    display: block;
   }
 
   .menu-list {
-    display: none;
     flex-direction: column;
-    margin-top: 1rem;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 1rem;
-    border-radius: 12px;
-    width: 100%;
-  }
-
-  .menu-list.active {
-    display: flex;
+    align-items: center;
   }
 
   .menu-list li {
