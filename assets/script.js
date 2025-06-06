@@ -17,10 +17,33 @@ window.addEventListener('load', function () {
     document.getElementById('animated-bg').appendChild(star);
   }
 
-  // Detener la animación del título después de 15 segundos
+  // Efecto máquina de escribir para el título h1
   const title = document.querySelector('h1');
+  if (title) {
+    const fullText = title.textContent;
+    title.textContent = ''; // Vaciar para la animación
+    title.style.borderRight = '2px solid #13dca0'; // barra cursor
+
+    let index = 0;
+    const speed = 70; // ms entre letras
+
+    function typeWriter() {
+      if (index < fullText.length) {
+        title.textContent += fullText.charAt(index);
+        index++;
+        setTimeout(typeWriter, speed);
+      } else {
+        // Quitar barra de cursor cuando termina
+        title.style.borderRight = 'none';
+      }
+    }
+
+    typeWriter();
+  }
+
+  // Detener la animación del título después de 15 segundos
   setTimeout(() => {
-    title.style.animation = 'none';
+    if (title) title.style.animation = 'none';
   }, 15000);
 });
 
@@ -37,9 +60,9 @@ function resize() {
   points = [];
   const spacing = 100;
 
-  for (let x = spacing/2; x < width; x += spacing) {
-    for (let y = spacing/2; y < height; y += spacing) {
-      points.push({x: x + (Math.random() * 50 - 25), y: y + (Math.random() * 50 - 25)});
+  for (let x = spacing / 2; x < width; x += spacing) {
+    for (let y = spacing / 2; y < height; y += spacing) {
+      points.push({ x: x + (Math.random() * 50 - 25), y: y + (Math.random() * 50 - 25) });
     }
   }
 }

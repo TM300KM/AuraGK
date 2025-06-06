@@ -183,3 +183,20 @@ body {
       85vw 60vh var(--color-star);
   }
 }
+
+/* Efecto máquina de escribir (barra parpadeante) */
+.animated-title {
+  border-right: 2px solid #13dca0;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: caretBlink 0.8s step-end infinite;
+}
+
+@keyframes caretBlink {
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: #13dca0;
+  }
+}
