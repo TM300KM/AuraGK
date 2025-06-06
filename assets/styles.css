@@ -122,11 +122,12 @@ body {
   100% { opacity: 1; }
 }
 
-.hero-section .container {
+.hero-content {
   max-width: var(--max-width-content);
-  padding: 1rem;
+  padding: 2rem 1rem;
   width: 100%;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .animated-title,
@@ -164,6 +165,29 @@ body {
   100% { background-position: 200%; }
 }
 
+.sub-title {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  margin: 1rem 0;
+  color: var(--color-metal-blue);
+  opacity: 0.8;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: var(--color-blue-glow);
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color var(--transition-duration) ease;
+}
+
+.cta-button:hover {
+  background-color: var(--color-metal-blue);
+}
+
 @media (max-width: 768px) {
   .hero-section {
     padding: 1rem;
@@ -187,6 +211,15 @@ body {
       70vw 15vh var(--color-star),
       85vw 60vh var(--color-star);
   }
+
+  .sub-title {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
 }
 
 .animated-title {
@@ -202,88 +235,5 @@ body {
   }
   100% {
     border-color: #13dca0;
-  }
-}
-
-#menu {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 1rem 2rem;
-  border-radius: 15px;
-  box-shadow: 0 0 15px #13dca0aa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#menu-toggle {
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  display: none;
-}
-
-.menu-list {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  flex-wrap: wrap;
-}
-
-.menu-list li a {
-  color: var(--color-metal-blue);
-  font-family: var(--font-heading);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color var(--transition-duration) ease;
-}
-
-.menu-list li a:hover {
-  color: var(--color-blue-glow);
-}
-
-@media (max-width: 768px) {
-  #menu {
-    width: 90%;
-    padding: 1rem;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  #menu-toggle {
-    display: block;
-  }
-
-  .menu-list {
-    display: none;
-    flex-direction: column;
-    margin-top: 1rem;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 1rem;
-    border-radius: 12px;
-    width: 100%;
-  }
-
-  .menu-list.active {
-    display: flex;
-  }
-
-  .menu-list li {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  .menu-list li a {
-    font-size: 1.2rem;
   }
 }
