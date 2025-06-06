@@ -215,15 +215,11 @@ body {
 
 .menu-list {
   list-style: none;
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
+  display: none;
+  flex-direction: column;
+  align-items: center;
   padding: 0;
   margin: 0;
-  flex-wrap: wrap;
-  height: 0; /* Ocultar la lista inicialmente */
-  overflow: hidden; /* Ocultar el desbordamiento */
-  transition: height var(--transition-duration) ease; /* Animación suave al cambiar la altura */
   background-color: rgba(0, 0, 0, 0.8);
   padding: 1rem;
   border-radius: 12px;
@@ -239,7 +235,7 @@ body {
 }
 
 .menu-list.active {
-  height: auto; /* Mostrar la lista cuando esté activa */
+  display: flex;
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
@@ -253,6 +249,7 @@ body {
   transition: color var(--transition-duration) ease, transform var(--transition-duration) ease;
   position: relative;
   overflow: hidden;
+  margin: 1rem 0;
 }
 
 .menu-list li a::before {
