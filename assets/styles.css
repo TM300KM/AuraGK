@@ -195,6 +195,22 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  z-index: 10;
+}
+
+#menu-toggle {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none;
+  transition: transform var(--transition-duration) ease;
+}
+
+#menu-toggle:focus {
+  outline: none;
 }
 
 .menu-list {
@@ -205,6 +221,28 @@ body {
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
+  height: 0; /* Ocultar la lista inicialmente */
+  overflow: hidden; /* Ocultar el desbordamiento */
+  transition: height var(--transition-duration) ease; /* Animación suave al cambiar la altura */
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  border-radius: 12px;
+  width: 100%;
+  position: absolute;
+  top: 50px; /* Ajusta la posición del menú desplegable */
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform var(--transition-duration) ease, opacity var(--transition-duration) ease;
+}
+
+.menu-list.active {
+  height: auto; /* Mostrar la lista cuando esté activa */
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .menu-list li a {
@@ -274,6 +312,10 @@ body {
     margin-top: 1.5rem; /* Ajusta el espacio entre el título y el menú en dispositivos móviles */
     width: 90%;
     padding: 1rem;
+  }
+
+  #menu-toggle {
+    display: block;
   }
 
   .menu-list {
