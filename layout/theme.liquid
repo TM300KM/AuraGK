@@ -91,17 +91,26 @@
 
         requestAnimationFrame(animate);
       }
+      <script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const menuList = document.getElementById('menu-list');
 
+  toggleBtn.addEventListener('click', () => {
+    menuList.classList.toggle('active');
+  });
+</script>
       init();
     </script>
   </body>
 </html>
 
 <nav id="menu">
-  <ul class="menu-list">
+  <button id="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+  <ul class="menu-list" id="menu-list">
     <li><a href="#tienda">Tienda</a></li>
     <li><a href="#catalogo">Catálogo</a></li>
     <li><a href="#carrito">Carrito</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
 </nav>
+
