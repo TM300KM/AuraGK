@@ -23,3 +23,54 @@ window.addEventListener('load', function () {
     title.style.animation = 'none';
   }, 15000);
 });
+
+const canvas = document.getElementById('tech-canvas');
+const ctx = canvas.getContext('2d');
+
+let width, height;
+let points = [];
+
+function resize() {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+
+  points = [];
+  const spacing = 100;
+
+  for (let x = spacing/2; x < width; x += spacing) {
+    for (let y = spacing/2; y < height; y += spacing) {
+      points.push({x: x + (Math.random() * 50 - 25), y: y + (Math.random() * 50 - 25)});
+    }
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, width, height);
+
+  // Dibuja líneas entre puntos cercanos
+  for (let i = 0; i < points.length; i++) {
+    for (let j = i + 1; j < points.length; j++) {
+      const dx = points[i].x - points[j].x;
+      const dy = points[i].y - points[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 150) {
+        ctx.strokeStyle = 'rgba(0, 255, 153, ' + (1 - dist / 150) + ')';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(points[i].x, points[i].y);
+        ctx.lineTo(points[j].x, points[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  requestAnimationFrame(draw);
+}
+
+window.addEventListener('resize', () => {
+  resize();
+});
+
+resize();
+draw();
