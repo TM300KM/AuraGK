@@ -205,7 +205,7 @@ body {
   border: none;
   color: white;
   cursor: pointer;
-  display: none;
+  display: block;
   transition: transform var(--transition-duration) ease;
 }
 
