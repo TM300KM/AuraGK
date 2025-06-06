@@ -333,3 +333,25 @@ body {
     font-size: 1.2rem;
   }
 }
+
+@media (min-width: 769px) {
+  #menu-toggle {
+    display: none;
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    background-color: transparent;
+    padding: 0;
+    height: auto;
+  }
+
+  .menu-list li {
+    margin: 0 1rem;
+  }
+}
