@@ -13,33 +13,95 @@
     <!-- Favicon -->
     <link rel="icon" href="{{ 'favicon.ico' | asset_url }}" type="image/x-icon">
 
-    <!-- Fuentes personalizadas -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Fuente personalizada y base tipográfica -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <!-- CSS principal -->
-    <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}" media="all">
+    <!-- CSS personalizado dentro del layout -->
+    <style>
+      :root {
+        --font-primary: 'Roboto', sans-serif;
+        --font-heading: 'Great Vibes', cursive;
+        --color-background: #0d0d0d;
+        --color-text: #f0f0f0;
+        --color-accent: #e50914;
+      }
 
-    <!-- Etiqueta obligatoria de Shopify -->
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-primary);
+        background-color: var(--color-background);
+        color: var(--color-text);
+        line-height: 1.6;
+        font-size: 16px;
+      }
+
+      header, footer {
+        padding: 1.5rem;
+        text-align: center;
+        background-color: #1a1a1a;
+      }
+
+      footer {
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+
+      h1, h2, h3 {
+        font-family: var(--font-heading);
+        color: var(--color-accent);
+        margin-bottom: 0.5rem;
+      }
+
+      main {
+        padding: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          font-size: 15px;
+        }
+
+        header, footer {
+          padding: 1rem;
+        }
+
+        main {
+          padding: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          font-size: 14px;
+        }
+
+        h1, h2, h3 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+
+    <!-- Contenido obligatorio de Shopify -->
     {{ content_for_header }}
   </head>
 
   <body>
-    <!-- Encabezado accesible -->
     <header role="banner" aria-label="Encabezado principal">
-      <!-- Aquí podrías incluir un logo o barra superior en el futuro -->
+      <h1>{{ shop.name }}</h1>
     </header>
 
-    <!-- Contenido principal -->
     <main role="main" id="MainContent" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
-    <!-- Pie de página (opcional) -->
     <footer role="contentinfo" aria-label="Pie de página">
       <p>&copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- JS principal -->
+    <!-- JS personalizado si es necesario -->
     <script src="{{ 'script.js' | asset_url }}"></script>
   </body>
 </html>
