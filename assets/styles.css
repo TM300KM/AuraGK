@@ -8,7 +8,6 @@
   --color-star: #ffffff;
 }
 
-/* Estilos globales */
 body {
   margin: 0;
   padding: 0;
@@ -25,7 +24,6 @@ body {
   z-index: 1;
 }
 
-/* Fondo animado */
 .background-animation {
   position: fixed;
   inset: 0;
@@ -33,7 +31,6 @@ body {
   z-index: 0;
 }
 
-/* Estrellas */
 .stars {
   position: absolute;
   inset: 0;
@@ -53,7 +50,6 @@ body {
   100% { opacity: 1; }
 }
 
-/* Diamantes flotantes */
 .diamonds {
   position: absolute;
   inset: 0;
@@ -95,7 +91,6 @@ body {
   }
 }
 
-/* Canvas */
 #tech-canvas {
   position: absolute;
   inset: 0;
@@ -103,7 +98,6 @@ body {
   z-index: 0;
 }
 
-/* Sección principal */
 .hero-section {
   display: flex;
   justify-content: center;
@@ -114,6 +108,12 @@ body {
   position: relative;
   z-index: 1;
   text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .hero-section .container {
@@ -121,7 +121,6 @@ body {
   padding-inline: 1rem;
 }
 
-/* Títulos */
 .animated-title,
 .hero-section h1 {
   font-family: var(--font-heading);
@@ -157,7 +156,6 @@ body {
   100% { background-position: 200%; }
 }
 
-/* Responsive adicional */
 @media (max-width: 768px) {
   .hero-section {
     padding-inline: 1rem;
@@ -184,7 +182,6 @@ body {
   }
 }
 
-/* Efecto máquina de escribir (barra parpadeante) */
 .animated-title {
   border-right: 2px solid #13dca0;
   white-space: nowrap;
@@ -201,7 +198,6 @@ body {
   }
 }
 
-/* Menú de navegación */
 #menu {
   position: fixed;
   top: 20px;
@@ -241,9 +237,13 @@ body {
   font-family: var(--font-heading);
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-/* Responsive */
+.menu-list li a:hover {
+  color: var(--color-blue-glow);
+}
+
 @media (max-width: 768px) {
   #menu {
     width: 90%;
