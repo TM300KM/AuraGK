@@ -1,26 +1,8 @@
-// Función que se ejecuta cuando la ventana carga
-window.addEventListener('load', function () {
-  // Mostrar menú con transición
+document.addEventListener('DOMContentLoaded', function () {
+  // Función que se ejecuta cuando la ventana carga
   const menu = document.getElementById('menu');
   menu.style.opacity = '1';
   menu.style.transform = 'translateY(0)';
-
-  // Expandir fondo animado
-  const bg = document.getElementById('animated-bg');
-  bg.style.width = '100%';
-
-  // Generar estrellas dinámicamente
-  const createStar = () => {
-    const star = document.createElement('div');
-    star.classList.add('star');
-    star.style.top = `${Math.random() * 100}%`;
-    star.style.left = `${Math.random() * 100}%`;
-    document.getElementById('animated-bg').appendChild(star);
-  };
-
-  for (let i = 0; i < 100; i++) {
-    createStar();
-  }
 
   // Efecto máquina de escribir para el título h1
   const title = document.querySelector('h1');
@@ -46,8 +28,14 @@ window.addEventListener('load', function () {
     typeWriter();
   }
 
-  // Detener la animación del título después de 15 segundos
-  setTimeout(() => {
-    if (title) title.style.animation = 'none';
-  }, 15000);
+  // Funcionalidad del botón de menú
+  const toggleBtn = document.getElementById('menu-toggle');
+  const menuList = document.getElementById('menu-list');
+
+  toggleBtn.addEventListener('click', () => {
+    const expanded = toggleBtn.getAttribute('aria-expanded') === 'true' || false;
+    toggleBtn.setAttribute('aria-expanded', !expanded);
+    menuList.classList.toggle('active');
+    menu.style.transform = `translateY(${expanded ? '-100%' : '0'})`;
+  });
 });

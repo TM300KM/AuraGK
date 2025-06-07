@@ -52,9 +52,8 @@
     <!-- Scripts -->
     <script src="{{ 'script.js' | asset_url }}"></script>
     <script>
-      // Función que se ejecuta cuando la ventana carga
-      window.addEventListener('load', function () {
-        // Mostrar menú con transición
+      document.addEventListener('DOMContentLoaded', function () {
+        // Función que se ejecuta cuando la ventana carga
         const menu = document.getElementById('menu');
         menu.style.opacity = '1';
         menu.style.transform = 'translateY(0)';
@@ -83,21 +82,16 @@
           typeWriter();
         }
 
-        // Detener la animación del título después de 15 segundos
-        setTimeout(() => {
-          if (title) title.style.animation = 'none';
-        }, 15000);
-      });
+        // Funcionalidad del botón de menú
+        const toggleBtn = document.getElementById('menu-toggle');
+        const menuList = document.getElementById('menu-list');
 
-      // Funcionalidad del botón de menú
-      const toggleBtn = document.getElementById('menu-toggle');
-      const menuList = document.getElementById('menu-list');
-
-      toggleBtn.addEventListener('click', () => {
-        const expanded = toggleBtn.getAttribute('aria-expanded') === 'true' || false;
-        toggleBtn.setAttribute('aria-expanded', !expanded);
-        menuList.classList.toggle('active');
-        menu.style.transform = `translateY(${expanded ? '-100%' : '0'})`;
+        toggleBtn.addEventListener('click', () => {
+          const expanded = toggleBtn.getAttribute('aria-expanded') === 'true' || false;
+          toggleBtn.setAttribute('aria-expanded', !expanded);
+          menuList.classList.toggle('active');
+          menu.style.transform = `translateY(${expanded ? '-100%' : '0'})`;
+        });
       });
     </script>
   </body>
