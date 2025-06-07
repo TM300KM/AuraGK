@@ -18,12 +18,11 @@
 
   <body>
     <!-- Video de Fondo -->
-    <video>
-   
-   <source src="Giphy480p_preview"> type="video/mp4"
-   Tu navegador no es apto para mp4
-
-    <video>
+    <video id="background-video" autoplay muted loop>
+      <source src="{{ 'Giphy480p_preview.mp4' | asset_url }}" type="video/mp4">
+      <source src="{{ 'Giphy480p_preview.webm' | asset_url }}" type="video/webm">
+      Tu navegador no soporta la etiqueta de video.
+    </video>
 
     <!-- Sección de Hero -->
     <section class="hero-section">
