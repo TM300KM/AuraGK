@@ -177,20 +177,6 @@
     text-shadow: 0 0 3px #00fff7, 0 0 6px #00bfff;
   }
 
-  .diamonds::before,
-  .diamonds::after {
-    width: 15px;
-    height: 15px;
-  }
-
-  .stars {
-    box-shadow:
-      10vw 20vh var(--color-star),
-      30vw 40vh var(--color-star),
-      70vw 15vh var(--color-star),
-      85vw 60vh var(--color-star);
-  }
-
   .sub-title {
     font-size: 1rem;
   }
