@@ -1,13 +1,13 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Efecto máquina de escribir para el título h1
-  const title = document.querySelector('h1');
-  if (title) {
-    const fullText = title.textContent;
-    title.textContent = ''; // Vaciar para la animación
-    title.style.borderRight = '2px solid rgba(59, 14, 219, 0.66)'; // barra cursor
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('h1.animated-title');
+  const toggleBtn = document.getElementById('menu-toggle');
+  const menuList = document.getElementById('menu-list');
 
+  if (title) {
+    const fullText = "AuraGK";
+    title.textContent = '';
     let index = 0;
-    const speed = 70; // ms entre letras
+    const speed = 120;
 
     const typeWriter = () => {
       if (index < fullText.length) {
@@ -15,22 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
         index++;
         setTimeout(typeWriter, speed);
       } else {
-        // Quitar barra de cursor cuando termina
         title.style.borderRight = 'none';
       }
     };
-
     typeWriter();
   }
 
-  // Funcionalidad del botón de menú
-  const toggleBtn = document.getElementById('menu-toggle');
-  const menuList = document.getElementById('menu-list');
-
-  toggleBtn.addEventListener('click', () => {
-    const expanded = toggleBtn.getAttribute('aria-expanded') === 'true' || false;
-    toggleBtn.setAttribute('aria-expanded', !expanded);
-    menuList.classList.toggle('active');
-    menu.style.transform = `translateY(${expanded ? '-100%' : '0'})`;
-  });
+  if (toggleBtn && menuList) {
+    toggleBtn.addEventListener('click', () => {
+      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', !expanded);
+      menuList.classList.toggle('active');
+    });
+  }
 });
