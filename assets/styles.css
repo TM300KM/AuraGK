@@ -41,6 +41,7 @@
   background: linear-gradient(90deg, #00ffc3, #005aff, #00ffc3);
   background-size: 200% auto;
   -webkit-background-clip: text;
+  background-clip: text;
   animation: shine 3s linear infinite;
   white-space: nowrap;
   overflow: hidden;
