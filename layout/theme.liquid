@@ -17,12 +17,12 @@
   </head>
 
   <body>
-    <!-- Fondo animado -->
-    <div class="background-animation">
-      <div class="stars"></div>
-      <div class="diamonds"></div>
-      <canvas id="tech-canvas"></canvas>
-    </div>
+    <!-- Video de Fondo -->
+    <video id="background-video" autoplay muted loop>
+      <source src="{{ 'videos/Giphy480_preview.mp4' | asset_url }}" type="video/mp4">
+      <source src="{{ 'videos/Giphy480_preview.webm' | asset_url }}" type="video/webm">
+      Tu navegador no soporta la etiqueta de video.
+    </video>
 
     <!-- Sección de Hero -->
     {% section 'hero' %}
