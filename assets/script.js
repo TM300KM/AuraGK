@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Función que se ejecuta cuando la ventana carga
-  const menu = document.getElementById('menu');
-  menu.style.opacity = '1';
-  menu.style.transform = 'translateY(0)';
-
   // Efecto máquina de escribir para el título h1
   const title = document.querySelector('h1');
   if (title) {
