@@ -2,27 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page_title }}</title>
-
   {{ content_for_header }}
-
-  <!-- Efecto de nieve -->
-  <script defer src="https://app.embed.im/snow.js"></script>
-
-  <!-- Estilos del tema -->
   <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
 </head>
-<body style="background-color: black;">
-
-  <!-- Sección Hero -->
-  {% section 'hero' %}
-
-  <!-- Contenido principal de la página -->
+<body>
   {{ content_for_layout }}
-
-  <!-- Scripts del tema -->
   <script src="{{ 'script.js' | asset_url }}" defer></script>
 </body>
 </html>
