@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Configuración general",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store_title",
+        "label": "Título de la tienda",
+        "default": "Mi Tienda Shopify"
+      }
+    ]
+  }
+]

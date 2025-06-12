@@ -1,0 +1,24 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>Bienvenido a Mi Tienda</h1>
+    <p>Descubre productos únicos y de alta calidad.</p>
+    <a href="/collections/all" class="btn">Explorar Catálogo</a>
+  </div>
+</section>
+
+<style>
+.hero {
+  background: url('{{ 'hero-bg.jpg' | asset_url }}') no-repeat center center;
+  background-size: cover;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+}
+.hero .btn {
+  background: #ff6a00;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+</style>
