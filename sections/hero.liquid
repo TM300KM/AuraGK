@@ -100,155 +100,276 @@
   });
 </script>
 <style>
-  #storeName {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    color: #fff;
-    font-size: clamp(2rem, 8vw, 6rem);
-    font-weight: bold;
-    letter-spacing: 0.15em;
-    text-shadow:
-      0 2px 8px #000,
-      0 0 10px #00ffe7,
-      0 0 20px #00ffe7,
-      2px 2px 0 #ff00c8,
-      -2px -2px 0 #00ffe7,
-      0 8px 24px #000;
-    background: linear-gradient(90deg, #00ffe7 0%, #ff00c8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 0 12px #00ffe7) drop-shadow(0 0 24px #ff00c8);
-    perspective: 400px;
-    animation: storeNameEntrance 1.2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
-    will-change: transform, opacity, filter;
-    user-select: none;
-    cursor: pointer;
-    transition: filter 0.3s, font-size 0.3s;
-    max-width: 90vw;
-    white-space: pre-wrap;
-    word-break: break-word;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 0 2vw;
+/* --- HERO STORE NAME EFFECT --- */
+#storeName {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #fff;
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  text-shadow:
+    0 2px 8px #000,
+    0 0 10px #00ffe7,
+    0 0 20px #00ffe7,
+    2px 2px 0 #ff00c8,
+    -2px -2px 0 #00ffe7,
+    0 8px 24px #000;
+  background: linear-gradient(90deg, #00ffe7 0%, #ff00c8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px #00ffe7) drop-shadow(0 0 24px #ff00c8);
+  perspective: 400px;
+  animation: storeNameEntrance 1.2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+  will-change: transform, opacity, filter;
+  user-select: none;
+  cursor: pointer;
+  transition: filter 0.3s, font-size 0.3s, opacity 0.3s;
+  max-width: 90vw;
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0 2vw;
+  opacity: 0;
+  pointer-events: none;
+}
+#storeName.visible {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+@keyframes storeNameEntrance {
+  0% {
+    opacity: 0;
+    transform: translate(-50%,-50%) scale(0.7) rotateY(60deg) skewY(10deg);
+    filter: blur(8px) brightness(1.5);
   }
-  @keyframes storeNameEntrance {
-    0% {
-      opacity: 0;
-      transform: translate(-50%,-50%) scale(0.7) rotateY(60deg) skewY(10deg);
-      filter: blur(8px) brightness(1.5);
-    }
-    60% {
-      opacity: 1;
-      transform: translate(-50%,-50%) scale(1.15) rotateY(-10deg) skewY(-2deg);
-      filter: blur(1px) brightness(1.1);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(-50%,-50%) scale(1) rotateY(0deg) skewY(0deg);
-      filter: blur(0) brightness(1);
-    }
+  60% {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1.15) rotateY(-10deg) skewY(-2deg);
+    filter: blur(1px) brightness(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1) rotateY(0deg) skewY(0deg);
+    filter: blur(0) brightness(1);
+  }
+}
+#storeName span {
+  display: inline-block;
+  animation: letterPop 0.8s cubic-bezier(.68,-0.55,.27,1.55) both;
+  animation-delay: calc(var(--i) * 0.07s);
+  text-shadow:
+    0 2px 8px #000,
+    0 0 10px #00ffe7,
+    0 0 20px #ff00c8,
+    2px 2px 0 #ff00c8,
+    -2px -2px 0 #00ffe7;
+  background: linear-gradient(120deg, #00ffe7 0%, #ff00c8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: 
+    filter 0.2s, 
+    transform 0.2s, 
+    text-shadow 0.2s, 
+    background 0.3s;
+  cursor: pointer;
+  position: relative;
+  font-size: inherit;
+  opacity: 0.95;
+  will-change: transform, filter;
+}
+@keyframes letterPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotateY(90deg);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.2) rotateY(-10deg);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    filter: blur(0);
+  }
+}
+#storeName span.active,
+#storeName span:hover {
+  filter: drop-shadow(0 0 16px #fff) brightness(1.5);
+  transform: scale(1.25) rotate(-8deg);
+  background: linear-gradient(120deg, #ff00c8 0%, #00ffe7 100%);
+  text-shadow:
+    0 0 16px #fff,
+    0 0 32px #ff00c8,
+    0 0 32px #00ffe7;
+  z-index: 2;
+}
+#storeName span.clicked {
+  animation: clickPop 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+  background: linear-gradient(90deg, #fff700 0%, #ff00c8 100%);
+  filter: drop-shadow(0 0 24px #fff700) brightness(2);
+}
+@keyframes clickPop {
+  0% {
+    transform: scale(1.2) rotate(0deg);
+    filter: blur(0) brightness(2);
+  }
+  50% {
+    transform: scale(1.5) rotate(10deg);
+    filter: blur(2px) brightness(2.5);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: blur(0) brightness(1.2);
+  }
+}
+/* Accessibility: focus style for keyboard navigation */
+#storeName span:focus {
+  outline: 2px solid #fff700;
+  outline-offset: 2px;
+  filter: drop-shadow(0 0 24px #fff700) brightness(2);
+  background: linear-gradient(90deg, #fff700 0%, #00ffe7 100%);
+}
+#storeName span:active {
+  filter: drop-shadow(0 0 24px #fff700) brightness(2.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  #storeName {
+    font-size: clamp(1.5rem, 10vw, 4rem);
+    padding: 0 4vw;
+  }
+}
+@media (max-width: 600px) {
+  #storeName {
+    font-size: clamp(1.1rem, 12vw, 2.5rem);
+    padding: 0 6vw;
+    letter-spacing: 0.08em;
   }
   #storeName span {
-    display: inline-block;
-    animation: letterPop 0.8s cubic-bezier(.68,-0.55,.27,1.55) both;
-    animation-delay: calc(var(--i) * 0.07s);
-    text-shadow:
-      0 2px 8px #000,
-      0 0 10px #00ffe7,
-      0 0 20px #ff00c8,
-      2px 2px 0 #ff00c8,
-      -2px -2px 0 #00ffe7;
-    background: linear-gradient(120deg, #00ffe7 0%, #ff00c8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    transition: 
-      filter 0.2s, 
-      transform 0.2s, 
-      text-shadow 0.2s, 
-      background 0.3s;
-    cursor: pointer;
-    position: relative;
     font-size: inherit;
   }
-  @keyframes letterPop {
-    0% {
-      opacity: 0;
-      transform: scale(0.2) rotateY(90deg);
-      filter: blur(8px);
-    }
-    60% {
-      opacity: 1;
-      transform: scale(1.2) rotateY(-10deg);
-      filter: blur(1px);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1) rotateY(0deg);
-      filter: blur(0);
-    }
+}
+@media (max-width: 400px) {
+  #storeName {
+    font-size: clamp(0.9rem, 14vw, 1.7rem);
+    padding: 0 8vw;
+    letter-spacing: 0.05em;
   }
-  #storeName span.active,
-  #storeName span:hover {
-    filter: drop-shadow(0 0 16px #fff) brightness(1.5);
-    transform: scale(1.25) rotate(-8deg);
-    background: linear-gradient(120deg, #ff00c8 0%, #00ffe7 100%);
-    text-shadow:
-      0 0 16px #fff,
-      0 0 32px #ff00c8,
-      0 0 32px #00ffe7;
-    z-index: 2;
+  #storeName span {
+    font-size: inherit;
   }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  #storeName,
+  #storeName span,
   #storeName span.clicked {
-    animation: clickPop 0.5s cubic-bezier(.68,-0.55,.27,1.55);
-    background: linear-gradient(90deg, #fff700 0%, #ff00c8 100%);
-    filter: drop-shadow(0 0 24px #fff700) brightness(2);
+    animation: none !important;
+    transition: none !important;
   }
-  @keyframes clickPop {
-    0% {
-      transform: scale(1.2) rotate(0deg);
-      filter: blur(0) brightness(2);
-    }
-    50% {
-      transform: scale(1.5) rotate(10deg);
-      filter: blur(2px) brightness(2.5);
-    }
-    100% {
-      transform: scale(1) rotate(0deg);
-      filter: blur(0) brightness(1.2);
-    }
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Split AuraGK into spans for animation
+  var storeName = document.getElementById('storeName');
+  var text = storeName.textContent.trim();
+  storeName.innerHTML = '';
+  for (var i = 0; i < text.length; i++) {
+    var span = document.createElement('span');
+    span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+    span.style.setProperty('--i', i);
+    span.setAttribute('tabindex', '0'); // accessibility: allow keyboard focus
+    storeName.appendChild(span);
   }
 
-  /* Responsive adjustments */
-  @media (max-width: 900px) {
-    #storeName {
-      font-size: clamp(1.5rem, 10vw, 4rem);
-      padding: 0 4vw;
-    }
+  function showStoreName() {
+    storeName.classList.add('visible');
+    // Ajustar tamaño de fuente según el ancho del video
+    var video = document.getElementById('heroVideo');
+    var width = video.offsetWidth;
+    var fontSize = Math.max(32, Math.min(0.11 * width, 110)); // entre 32px y 110px
+    storeName.style.fontSize = fontSize + 'px';
+    // Reiniciar animaciones
+    storeName.style.animation = 'none';
+    void storeName.offsetWidth; // trigger reflow
+    storeName.style.animation = '';
+    var spans = storeName.querySelectorAll('span');
+    spans.forEach(function(span) {
+      span.style.animation = 'none';
+      void span.offsetWidth;
+      span.style.animation = '';
+    });
   }
-  @media (max-width: 600px) {
-    #storeName {
-      font-size: clamp(1.1rem, 12vw, 2.5rem);
-      padding: 0 6vw;
-      letter-spacing: 0.08em;
-    }
-    #storeName span {
-      font-size: inherit;
-    }
+
+  // Para navegadores que no disparan onended si loop está activo
+  var heroVideo = document.getElementById('heroVideo');
+  if (heroVideo) {
+    heroVideo.addEventListener('timeupdate', function() {
+      if (this.duration - this.currentTime < 0.3) {
+        showStoreName();
+        this.pause();
+      }
+    });
+    // Mejora: permitir reproducir de nuevo al hacer click en el nombre
+    storeName.addEventListener('dblclick', function() {
+      storeName.classList.remove('visible');
+      heroVideo.currentTime = 0;
+      heroVideo.play();
+    });
   }
-  /* Extra mobile adaptation for very small screens */
-  @media (max-width: 400px) {
-    #storeName {
-      font-size: clamp(0.9rem, 14vw, 1.7rem);
-      padding: 0 8vw;
-      letter-spacing: 0.05em;
+  // Hacer showStoreName global para el atributo onended
+  window.showStoreName = showStoreName;
+  // Ajustar tamaño de fuente al cambiar tamaño de ventana
+  window.addEventListener('resize', function() {
+    if (storeName.classList.contains('visible')) {
+      var video = document.getElementById('heroVideo');
+      var width = video.offsetWidth;
+      var fontSize = Math.max(32, Math.min(0.11 * width, 110));
+      storeName.style.fontSize = fontSize + 'px';
     }
-    #storeName span {
-      font-size: inherit;
+  });
+
+  // Interactividad: efecto hover y click en letras
+  storeName.addEventListener('mouseover', function(e) {
+    if (e.target.tagName === 'SPAN') {
+      e.target.classList.add('active');
     }
-  }
-</style>
+  });
+  storeName.addEventListener('mouseout', function(e) {
+    if (e.target.tagName === 'SPAN') {
+      e.target.classList.remove('active');
+    }
+  });
+  storeName.addEventListener('click', function(e) {
+    if (e.target.tagName === 'SPAN') {
+      e.target.classList.add('clicked');
+      setTimeout(function() {
+        e.target.classList.remove('clicked');
+      }, 500);
+    }
+  });
+  // Accesibilidad: animación con teclado
+  storeName.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'SPAN' && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      e.target.classList.add('clicked');
+      setTimeout(function() {
+        e.target.classList.remove('clicked');
+      }, 500);
+    }
+  });
+});
+</script>
