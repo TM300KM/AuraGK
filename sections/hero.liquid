@@ -16,8 +16,27 @@
 </style>
 
 <div class="hero-bg-video">
-  <video autoplay loop muted playsinline preload="auto">
+  <video id="heroVideo" autoplay loop muted playsinline preload="auto" onended="showStoreName()">
     <source src="https://cdn.shopify.com/videos/c/o/v/0e15a77514754d75bcda3d4a8e3271d7.mp4" type="video/mp4">
     Tu navegador no soporta la etiqueta de video.
   </video>
+  <div id="storeName" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; font-size:3rem; font-weight:bold; text-shadow:2px 2px 8px #000;">
+    AuraGK
+  </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function showStoreName() {
+      document.getElementById('storeName').style.display = 'block';
+    }
+    // For browsers that don't fire onended if loop is set
+    document.getElementById('heroVideo').addEventListener('timeupdate', function() {
+      if (this.duration - this.currentTime < 0.3) {
+        showStoreName();
+        this.pause();
+      }
+    });
+    // Make showStoreName globally accessible for onended attribute
+    window.showStoreName = showStoreName;
+  });
+</script>
