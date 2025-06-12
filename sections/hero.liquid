@@ -24,24 +24,111 @@
     AuraGK
   </div>
 </div>
+<style>
+  #storeName {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    text-shadow:
+      0 2px 8px #000,
+      0 0 10px #00ffe7,
+      0 0 20px #00ffe7,
+      2px 2px 0 #ff00c8,
+      -2px -2px 0 #00ffe7,
+      0 8px 24px #000;
+    background: linear-gradient(90deg, #00ffe7 0%, #ff00c8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 12px #00ffe7) drop-shadow(0 0 24px #ff00c8);
+    perspective: 400px;
+    animation: storeNameEntrance 1.2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+    will-change: transform, opacity, filter;
+    user-select: none;
+    cursor: pointer;
+  }
+  @keyframes storeNameEntrance {
+    0% {
+      opacity: 0;
+      transform: translate(-50%,-50%) scale(0.7) rotateY(60deg) skewY(10deg);
+      filter: blur(8px) brightness(1.5);
+    }
+    60% {
+      opacity: 1;
+      transform: translate(-50%,-50%) scale(1.15) rotateY(-10deg) skewY(-2deg);
+      filter: blur(1px) brightness(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%,-50%) scale(1) rotateY(0deg) skewY(0deg);
+      filter: blur(0) brightness(1);
+    }
+  }
+  #storeName span {
+    display: inline-block;
+    animation: letterPop 0.8s cubic-bezier(.68,-0.55,.27,1.55) both;
+    animation-delay: calc(var(--i) * 0.07s);
+    text-shadow:
+      0 2px 8px #000,
+      0 0 10px #00ffe7,
+      0 0 20px #ff00c8,
+      2px 2px 0 #ff00c8,
+      -2px -2px 0 #00ffe7;
+  }
+  @keyframes letterPop {
+    0% {
+      opacity: 0;
+      transform: scale(0.2) rotateY(90deg);
+      filter: blur(8px);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.2) rotateY(-10deg);
+      filter: blur(1px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotateY(0deg);
+      filter: blur(0);
+    }
+  }
+</style>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Split AuraGK into spans for animation
+    var storeName = document.getElementById('storeName');
+    var text = storeName.textContent.trim();
+    storeName.innerHTML = '';
+    for (var i = 0; i < text.length; i++) {
+      var span = document.createElement('span');
+      span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+      span.style.setProperty('--i', i);
+      storeName.appendChild(span);
+    }
+
     function showStoreName() {
-      var storeName = document.getElementById('storeName');
       storeName.style.display = 'block';
       // Ajustar tamaño de fuente según el ancho del video
       var video = document.getElementById('heroVideo');
       var width = video.offsetWidth;
-      var fontSize = Math.max(24, Math.min(0.08 * width, 80)); // entre 24px y 80px
+      var fontSize = Math.max(32, Math.min(0.11 * width, 110)); // entre 32px y 110px
       storeName.style.fontSize = fontSize + 'px';
-      // Animación llamativa
-      storeName.style.opacity = 0;
-      storeName.style.transition = 'opacity 1s, transform 1s';
-      storeName.style.transform = 'scale(1.2)';
-      setTimeout(function() {
-        storeName.style.opacity = 1;
-        storeName.style.transform = 'scale(1)';
-      }, 10);
+      // Reiniciar animaciones
+      storeName.style.animation = 'none';
+      void storeName.offsetWidth; // trigger reflow
+      storeName.style.animation = '';
+      var spans = storeName.querySelectorAll('span');
+      spans.forEach(function(span) {
+        span.style.animation = 'none';
+        void span.offsetWidth;
+        span.style.animation = '';
+      });
     }
     // Para navegadores que no disparan onended si loop está activo
     var heroVideo = document.getElementById('heroVideo');
@@ -57,11 +144,10 @@
     window.showStoreName = showStoreName;
     // Ajustar tamaño de fuente al cambiar tamaño de ventana
     window.addEventListener('resize', function() {
-      var storeName = document.getElementById('storeName');
       if (storeName.style.display === 'block') {
         var video = document.getElementById('heroVideo');
         var width = video.offsetWidth;
-        var fontSize = Math.max(24, Math.min(0.08 * width, 80));
+        var fontSize = Math.max(32, Math.min(0.11 * width, 110));
         storeName.style.fontSize = fontSize + 'px';
       }
     });
