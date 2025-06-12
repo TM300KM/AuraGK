@@ -1,5 +1,4 @@
-<section class="hero">
-  <div class="overlay"></div>
+<section class="hero container">
   <div class="hero-content">
     <h1 class="hero-title" id="hero-title">Bienvenido a AuraGK</h1>
     <p class="hero-subtitle">Donde el estilo y la tecnología se fusionan.</p>
@@ -8,42 +7,69 @@
 </section>
 
 <style>
-.hero {
-  position: relative;
-  background: url('{{ 'hero-bg.jpg' | asset_url }}') no-repeat center center;
-  background-size: cover;
+/* Fondo tipo tablero dinámico */
+.container {
+  width: 100%;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
+  --bg: linear-gradient(
+      45deg,
+      rgb(0, 0, 0) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgb(0, 0, 0) 75%,
+      rgb(0, 0, 0)
+    ),
+    linear-gradient(
+      45deg,
+      rgb(0, 0, 0) 25%,
+      white 25%,
+      white 75%,
+      rgb(0, 0, 0) 75%,
+      rgb(0, 0, 0)
+    );
+  --bgsize: 60px 60px;
+  --bgposition: 0 0, 30px 30px;
+  background-color: white;
+  background-image: var(--bg);
+  background-size: var(--bgsize);
+  background-position: var(--bgposition);
+  position: relative;
   perspective: 1000px;
+  transform-style: preserve-3d;
   overflow: hidden;
+  box-shadow: inset 0px 0px 500px rgb(15, 15, 15);
 }
 
-.overlay {
+.container::before {
+  content: "";
+  width: 100%;
+  height: 150%;
+  box-shadow: 0px -100px 500px black, inset 0px 100px 500px rgb(15, 15, 15);
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
+  top: 55%;
+  background-image: var(--bg);
+  background-size: var(--bgsize);
+  background-position: var(--bgposition);
+  transform-origin: top;
+  transform: rotateX(80deg);
+  z-index: 0;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 1;
+  text-align: center;
+  color: white;
   padding: 20px;
 }
 
 .hero-title {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #fff;
-  transform-style: preserve-3d;
-  transition: transform 0.1s ease-out;
   font-weight: 900;
   text-shadow: 0 0 20px rgba(255, 106, 0, 0.8);
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
 }
 
 .hero-subtitle {
@@ -77,12 +103,10 @@
       title.style.transform = `rotateX(${ -rotateX }deg) rotateY(${ rotateY }deg)`;
     }
 
-    // PC - Mouse
     window.addEventListener("mousemove", e => {
       rotateTitle(e.clientX, e.clientY);
     });
 
-    // Móviles - Toque
     window.addEventListener("touchmove", e => {
       if (e.touches.length > 0) {
         const touch = e.touches[0];
