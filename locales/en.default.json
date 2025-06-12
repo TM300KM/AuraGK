@@ -1,5 +1,11 @@
 {
   "general": {
-    "welcome": "Welcome to our store!"
+    "welcome": "¡Bienvenido a nuestra tienda!",
+    "description": "Ofrecemos una amplia gama de productos para satisfacer todas tus necesidades.",
+    "contact_email": "support@ourstore.com"
+  },
+  "social": {
+    "facebook_url": "https://www.facebook.com/ourstore",
+    "twitter_url": "https://www.twitter.com/ourstore"
   }
 }

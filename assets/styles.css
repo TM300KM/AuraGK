@@ -1,6 +1,98 @@
-body {
+/* Estilos generales */
+body, html {
   margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: 'Helvetica Neue', sans-serif;
   background: #f4f4f4;
   color: #333;
+  overflow: hidden;
+}
+
+.header-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.header-bg-video video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+main {
+  padding: 2rem;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 2rem 0;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.product-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

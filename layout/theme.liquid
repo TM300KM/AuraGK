@@ -3,12 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page_title }}</title>
+  <title>{{ collection.title }} - {{ shop.name }}</title>
   {{ content_for_header }}
   <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
 </head>
 <body>
-  {{ content_for_layout }}
+  <div class="hero-bg-video">
+    <video id="heroVideo" autoplay loop muted playsinline preload="auto">
+      <source src="https://cdn.shopify.com/videos/c/o/v/0e15a77514754d75bcda3d4a8e3271d7.mp4" type="video/mp4">
+      Tu navegador no soporta la etiqueta de video.
+    </video>
+    <div class="content-overlay">
+      <header>
+        <h1>{{ collection.title }}</h1>
+      </header>
+      <main>
+        <div class="product-grid">
+          {% for product in collection.products %}
+            <div class="product-card">
+              <a href="{{ product.url }}">
+                <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+                <h3>{{ product.title }}</h3>
+                <p>{{ product.price | money }}</p>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </main>
+    </div>
+  </div>
   <script src="{{ 'script.js' | asset_url }}" defer></script>
 </body>
 </html>
