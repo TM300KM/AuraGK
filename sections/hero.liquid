@@ -240,4 +240,15 @@
       font-size: inherit;
     }
   }
+  /* Extra mobile adaptation for very small screens */
+  @media (max-width: 400px) {
+    #storeName {
+      font-size: clamp(0.9rem, 14vw, 1.7rem);
+      padding: 0 8vw;
+      letter-spacing: 0.05em;
+    }
+    #storeName span {
+      font-size: inherit;
+    }
+  }
 </style>
