@@ -217,6 +217,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Split AuraGK into spans for animation
   var storeName = document.getElementById('storeName');
+  if (!storeName) return;
   var text = storeName.textContent.trim();
   storeName.innerHTML = '';
   for (var i = 0; i < text.length; i++) {
