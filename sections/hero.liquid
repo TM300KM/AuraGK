@@ -181,7 +181,7 @@
     left: 50%;
     transform: translate(-50%,-50%);
     color: #fff;
-    font-size: 3rem;
+    font-size: clamp(2rem, 8vw, 6rem);
     font-weight: bold;
     letter-spacing: 0.15em;
     text-shadow:
@@ -201,7 +201,13 @@
     will-change: transform, opacity, filter;
     user-select: none;
     cursor: pointer;
-    transition: filter 0.3s;
+    transition: filter 0.3s, font-size 0.3s;
+    max-width: 90vw;
+    white-space: pre-wrap;
+    word-break: break-word;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 2vw;
   }
   @keyframes storeNameEntrance {
     0% {
@@ -241,6 +247,7 @@
       background 0.3s;
     cursor: pointer;
     position: relative;
+    font-size: inherit;
   }
   @keyframes letterPop {
     0% {
@@ -287,6 +294,24 @@
     100% {
       transform: scale(1) rotate(0deg);
       filter: blur(0) brightness(1.2);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    #storeName {
+      font-size: clamp(1.5rem, 10vw, 4rem);
+      padding: 0 4vw;
+    }
+  }
+  @media (max-width: 600px) {
+    #storeName {
+      font-size: clamp(1.1rem, 12vw, 2.5rem);
+      padding: 0 6vw;
+      letter-spacing: 0.08em;
+    }
+    #storeName span {
+      font-size: inherit;
     }
   }
 </style>
