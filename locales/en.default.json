@@ -1,7 +1,7 @@
 {
   "general": {
-    "welcome": "¡Bienvenido a nuestra tienda!",
-    "description": "Ofrecemos una amplia gama de productos para satisfacer todas tus necesidades.",
+    "welcome": "Welcome to our store!",
+    "description": "We offer a wide range of products to meet all your needs.",
     "contact_email": "support@ourstore.com"
   },
   "social": {

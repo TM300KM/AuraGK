@@ -21,7 +21,12 @@ function setupEventListeners() {
   const buttons = document.querySelectorAll('.product-card a');
   buttons.forEach(button => {
     button.addEventListener('click', () => {
-      console.log('Producto seleccionado:', button.querySelector('h3').textContent);
+      const h3 = button.querySelector('h3');
+      if (h3) {
+        console.log('Producto seleccionado:', h3.textContent);
+      } else {
+        console.log('Producto seleccionado: título no encontrado');
+      }
     });
   });
 }

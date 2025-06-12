@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ collection.title }} - {{ shop.name }}</title>
+  <title>
+    {% if collection %}
+      {{ collection.title }} - {{ shop.name }}
+    {% else %}
+      {{ shop.name }}
+    {% endif %}
+  </title>
   {{ content_for_header }}
   <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
 </head>
@@ -15,19 +21,29 @@
     </video>
     <div class="content-overlay">
       <header>
-        <h1>{{ collection.title }}</h1>
+        <h1>
+          {% if collection %}
+            {{ collection.title }}
+          {% else %}
+            {{ shop.name }}
+          {% endif %}
+        </h1>
       </header>
       <main>
         <div class="product-grid">
-          {% for product in collection.products %}
-            <div class="product-card">
-              <a href="{{ product.url }}">
-                <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-                <h3>{{ product.title }}</h3>
-                <p>{{ product.price | money }}</p>
-              </a>
-            </div>
-          {% endfor %}
+          {% if collection and collection.products.size > 0 %}
+            {% for product in collection.products %}
+              <div class="product-card">
+                <a href="{{ product.url }}">
+                  <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+                  <h3>{{ product.title }}</h3>
+                  <p>{{ product.price | money }}</p>
+                </a>
+              </div>
+            {% endfor %}
+          {% else %}
+            <p>No products found.</p>
+          {% endif %}
         </div>
       </main>
     </div>
