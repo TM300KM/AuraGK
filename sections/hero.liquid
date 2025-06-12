@@ -56,3 +56,33 @@
   background-clip: text;
   filter: drop-shadow(0 0 12px #00ffe7) drop-shadow(0 0 24px #ff00c8);
   perspective: 400px;
+  animation: storeNameFadeIn 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+@media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+  .hero-bg-video video,
+  .hero-bg-video {
+    image-rendering: auto;
+    filter: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-bg-video video {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@keyframes storeNameFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%,-60%) scale(0.95) perspective(400px) rotateX(20deg);
+    filter: blur(8px) drop-shadow(0 0 24px #00ffe7);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1) perspective(400px) rotateX(0deg);
+    filter: blur(0) drop-shadow(0 0 24px #00ffe7);
+  }
+}
