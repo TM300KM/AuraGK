@@ -85,11 +85,26 @@
   border: none;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 106, 0, 0.3);
+  position: relative;
+  z-index: 2;
 }
 
-.btn:hover {
-  background: #e55b00;
+/* Glow effect en hover y click */
+.btn:hover,
+.btn:focus,
+.btn:active {
+  box-shadow: 0 0 20px rgba(255, 106, 0, 0.8), 0 0 40px rgba(255, 106, 0, 0.6);
+  transform: scale(1.05);
+}
+
+/* Compatibilidad con móviles */
+@media (hover: none) {
+  .btn:active {
+    box-shadow: 0 0 20px rgba(255, 106, 0, 0.8), 0 0 40px rgba(255, 106, 0, 0.6);
+    transform: scale(1.05);
+  }
 }
 </style>
 
