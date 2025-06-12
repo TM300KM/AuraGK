@@ -1,7 +1,7 @@
 <section class="hero">
   <div class="overlay"></div>
   <div class="hero-content">
-    <h1 class="hero-title">Bienvenido a AuraGK</h1>
+    <h1 class="hero-title" id="hero-title">Bienvenido a AuraGK</h1>
     <p class="hero-subtitle">Donde el estilo y la tecnología se fusionan.</p>
     <a href="/collections/all" class="btn">Explorar Catálogo</a>
   </div>
@@ -18,6 +18,8 @@
   align-items: center;
   text-align: center;
   color: white;
+  perspective: 1000px;
+  overflow: hidden;
 }
 
 .overlay {
@@ -37,6 +39,11 @@
 .hero-title {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: #fff;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  font-weight: 900;
+  text-shadow: 0 0 20px rgba(255, 106, 0, 0.8);
 }
 
 .hero-subtitle {
@@ -59,3 +66,28 @@
   background: #e55b00;
 }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const title = document.getElementById("hero-title");
+
+    function rotateTitle(x, y) {
+      const rotateX = (y - window.innerHeight / 2) / 20;
+      const rotateY = (x - window.innerWidth / 2) / 20;
+      title.style.transform = `rotateX(${ -rotateX }deg) rotateY(${ rotateY }deg)`;
+    }
+
+    // PC - Mouse
+    window.addEventListener("mousemove", e => {
+      rotateTitle(e.clientX, e.clientY);
+    });
+
+    // Móviles - Toque
+    window.addEventListener("touchmove", e => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        rotateTitle(touch.clientX, touch.clientY);
+      }
+    });
+  });
+</script>
