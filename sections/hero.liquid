@@ -1,3 +1,9 @@
+<div id="storeOptions" style="display:none; position:absolute; top:65%; left:50%; transform:translate(-50%,0); text-align:center; z-index:2;">
+  <button class="store-option">Explorar tienda</button>
+  <button class="store-option">Lanzamientos</button>
+  <button class="store-option">Descuentos</button>
+  <button class="store-option">Contacto</button>
+</div>
 <style>
 .hero-bg-video {
   position: absolute;
@@ -25,80 +31,6 @@
   </div>
 </div>
 <!-- Removed duplicate/conflicting #storeName styles to avoid CSS conflicts -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Split AuraGK into spans for animation
-    var storeName = document.getElementById('storeName');
-    var text = storeName.textContent.trim();
-    storeName.innerHTML = '';
-    for (var i = 0; i < text.length; i++) {
-      var span = document.createElement('span');
-      span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
-      span.style.setProperty('--i', i);
-      storeName.appendChild(span);
-    }
-
-    function showStoreName() {
-      storeName.style.display = 'block';
-      // Ajustar tamaño de fuente según el ancho del video
-      var video = document.getElementById('heroVideo');
-      var width = video.offsetWidth;
-      var fontSize = Math.max(32, Math.min(0.11 * width, 110)); // entre 32px y 110px
-      storeName.style.fontSize = fontSize + 'px';
-      // Reiniciar animaciones
-      storeName.style.animation = 'none';
-      void storeName.offsetWidth; // trigger reflow
-      storeName.style.animation = '';
-      var spans = storeName.querySelectorAll('span');
-      spans.forEach(function(span) {
-        span.style.animation = 'none';
-        void span.offsetWidth;
-        span.style.animation = '';
-      });
-    }
-    // Para navegadores que no disparan onended si loop está activo
-    var heroVideo = document.getElementById('heroVideo');
-    if (heroVideo) {
-      heroVideo.addEventListener('timeupdate', function() {
-        if (this.duration - this.currentTime < 0.3) {
-          showStoreName();
-          this.pause();
-        }
-      });
-    }
-    // Hacer showStoreName global para el atributo onended
-    window.showStoreName = showStoreName;
-    // Ajustar tamaño de fuente al cambiar tamaño de ventana
-    window.addEventListener('resize', function() {
-      if (storeName.style.display === 'block') {
-        var video = document.getElementById('heroVideo');
-        var width = video.offsetWidth;
-        var fontSize = Math.max(32, Math.min(0.11 * width, 110));
-        storeName.style.fontSize = fontSize + 'px';
-      }
-    });
-
-    // Interactividad: efecto hover y click en letras
-    storeName.addEventListener('mouseover', function(e) {
-      if (e.target.tagName === 'SPAN') {
-        e.target.classList.add('active');
-      }
-    });
-    storeName.addEventListener('mouseout', function(e) {
-      if (e.target.tagName === 'SPAN') {
-        e.target.classList.remove('active');
-      }
-    });
-    storeName.addEventListener('click', function(e) {
-      if (e.target.tagName === 'SPAN') {
-        e.target.classList.add('clicked');
-        setTimeout(function() {
-          e.target.classList.remove('clicked');
-        }, 500);
-      }
-    });
-  });
-</script>
 <style>
 /* --- HERO STORE NAME EFFECT --- */
 #storeName {
