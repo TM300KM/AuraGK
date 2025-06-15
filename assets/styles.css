@@ -66,31 +66,46 @@ body {
 		left: -100%;
 	}
 }
+/* Removed duplicate .diamond-background, .diamond, diamond child selectors, and keyframes to avoid conflicts. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background-color: #000; /* Fondo oscuro para resaltar los diamantes */
+  overflow: hidden;
+}
+
+/* Fondo de diamantes */
 .diamond-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  z-index: 0;
   pointer-events: none;
-  perspective: 800px;
+  perspective: 1000px;
+  z-index: 0;
 }
 
+/* Diamantes animados y responsivos */
 .diamond {
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 3vw;
+  height: 3vw;
+  max-width: 25px;
+  max-height: 25px;
   background: linear-gradient(45deg, #ffffff, #e0e0e0, #ffffff);
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 16px rgba(255, 255, 255, 0.3);
   opacity: 0;
-  transform: scale(0) rotate(0deg);
-  animation: sparkle 2s ease-in-out infinite, float 15s linear infinite, appear 1s ease-out forwards;
+  animation: sparkle 2s ease-in-out infinite, float 12s linear infinite, appear 1s ease-out forwards;
 }
 
-/* Generar múltiples diamantes con delays aleatorios */
+/* Posiciones y delays aleatorios para simular partículas */
 .diamond:nth-child(1)  { left: 10%; animation-delay: 0.5s, 0s, 0.5s; top: 90%; }
 .diamond:nth-child(2)  { left: 25%; animation-delay: 1s, 2s, 1s; top: 95%; }
 .diamond:nth-child(3)  { left: 40%; animation-delay: 0.8s, 4s, 1.2s; top: 100%; }
@@ -102,19 +117,30 @@ body {
 .diamond:nth-child(9)  { left: 15%; animation-delay: 0.9s, 7s, 1s; top: 108%; }
 .diamond:nth-child(10) { left: 78%; animation-delay: 0.4s, 3.5s, 1.2s; top: 98%; }
 
+/* Animaciones */
 @keyframes sparkle {
-  0% { transform: scale(1) rotateX(0deg) rotateY(0deg); opacity: 0.5; }
-  50% { transform: scale(1.3) rotateX(30deg) rotateY(30deg); opacity: 1; }
+  0% { transform: scale(1) rotateX(0deg) rotateY(0deg); opacity: 0.4; }
+  50% { transform: scale(1.3) rotateX(25deg) rotateY(25deg); opacity: 1; }
   100% { transform: scale(1) rotateX(0deg) rotateY(0deg); opacity: 0.3; }
 }
 
 @keyframes float {
-  0%   { transform: translateY(0) rotate(0deg); }
+  0% { transform: translateY(0) rotate(0deg); }
   100% { transform: translateY(-120vh) rotate(360deg); }
 }
 
 @keyframes appear {
   0% { opacity: 0; transform: scale(0); }
   100% { opacity: 1; transform: scale(1); }
+}
+
+/* 📱 Responsividad adicional (para pantallas muy pequeñas) */
+@media screen and (max-width: 480px) {
+  .diamond {
+    width: 4vw;
+    height: 4vw;
+    max-width: 20px;
+    max-height: 20px;
+  }
 }
 
