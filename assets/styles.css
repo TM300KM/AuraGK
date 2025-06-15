@@ -66,3 +66,36 @@ body {
 		left: -100%;
 	}
 }
+.diamond-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.diamond {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #fff, #ccc, #fff);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation: sparkle 1.5s infinite ease-in-out alternate;
+  opacity: 0.8;
+}
+
+.diamond:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+.diamond:nth-child(2) { top: 25%; left: 70%; animation-delay: 0.3s; }
+.diamond:nth-child(3) { top: 40%; left: 30%; animation-delay: 0.6s; }
+.diamond:nth-child(4) { top: 60%; left: 80%; animation-delay: 0.9s; }
+.diamond:nth-child(5) { top: 75%; left: 10%; animation-delay: 1.2s; }
+.diamond:nth-child(6) { top: 50%; left: 50%; animation-delay: 0.5s; }
+.diamond:nth-child(7) { top: 15%; left: 85%; animation-delay: 0.8s; }
+.diamond:nth-child(8) { top: 85%; left: 35%; animation-delay: 1.1s; }
+
+@keyframes sparkle {
+  0% { transform: scale(1) rotate(45deg); opacity: 0.5; }
+  50% { transform: scale(1.2) rotate(45deg); opacity: 1; }
+  100% { transform: scale(1) rotate(45deg); opacity: 0.3; }
+}
