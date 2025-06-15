@@ -1,21 +1,21 @@
-/* assets/styles.css */
 .hero {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(to right, #1a1a1a, #333);
+  background: #111;
   color: white;
   font-family: 'Helvetica Neue', sans-serif;
+  flex-direction: column;
 }
 
 .hero h1 {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero p {
   font-size: 1.25rem;
-  opacity: 0.8;
+  opacity: 0.9;
 }
