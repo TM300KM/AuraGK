@@ -1,9 +1,21 @@
-
-/* Estilos base para AuraGK */
-body {
-  margin: 0;
-  padding: 0;
+/* assets/styles.css */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(to right, #1a1a1a, #333);
+  color: white;
   font-family: 'Helvetica Neue', sans-serif;
-  background-color: #fff;
-  color: #333;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  opacity: 0.8;
 }
