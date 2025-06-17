@@ -65,7 +65,7 @@ body {
   height: 100%;
 }
 
-
+/*Estilo para dar formato texto*/
 .hero {
   background: linear-gradient(to right, #f3f4f6, #e5e7eb);
   padding: 60px 20px;
@@ -81,4 +81,11 @@ body {
 .hero p {
   font-size: 1.5rem;
   color: #4b5563;
+}
+
+/*Imagen Logo*/
+.site-logo {
+  height: 80px;
+  max-width: 100%;
+  object-fit: contain;
 }
