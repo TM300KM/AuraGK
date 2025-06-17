@@ -115,14 +115,14 @@ canvas {
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .hero p {
   font-size: 1.5rem;
-  color: #ffffff00;
+  color: #ffffff;
 }
 
 /* PRODUCTOS */
