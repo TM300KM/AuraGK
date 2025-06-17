@@ -128,7 +128,7 @@ canvas {
 /* PRODUCTOS */
 .products {
   padding: 2rem;
-  background-color: #000000;
+  background-color: #ffffff00;
   text-align: center;
 }
 
@@ -139,7 +139,7 @@ canvas {
 }
 
 .product-card {
-  border: 1px solid #ddd;
+  border: 1px solid #ffffff;
   padding: 1rem;
   background-color: #fff;
   transition: transform 0.2s;
@@ -152,7 +152,7 @@ canvas {
 /* GALERÍA */
 .gallery {
   padding: 2rem;
-  background-color: #000000;
+  background-color: #ffffff;
   text-align: center;
 }
 
@@ -172,8 +172,8 @@ canvas {
 .video-section {
   padding: 2rem;
   text-align: center;
-  background-color: #000;
-  color: #ffffff;
+  background-color: #ffffff00;
+  color: #ffffff00;
   position: relative;
   width: 100%;
   height: 400px;
@@ -202,7 +202,7 @@ canvas {
   transform: translate(-50%, -50%);
   color: #ffd700;
   text-align: center;
-  text-shadow: 0 0 8px #000;
+  text-shadow: 0 0 8px #ffffff00;
 }
 
 /* RESPONSIVE */
