@@ -225,3 +225,16 @@ canvas {
     object-fit: cover;
   }
 }
+/* ANIMACIONES */
+.rotate-horizontal-center {
+  animation: rotate-horizontal-center 1s;
+}
+
+@keyframes rotate-horizontal-center {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(-360deg);
+  }
+}
