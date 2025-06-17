@@ -76,7 +76,7 @@ canvas {
 .site-nav ul {
   list-style: none;
   display: flex;
-  gap: 26px;
+  gap: 25px;
   margin: 0;
   padding: 0;
 }
