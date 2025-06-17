@@ -225,3 +225,18 @@ canvas {
   text-align: center;
   text-shadow: 0 0 8px #000;
 }
+
+/*Seccion 3D*/
+.model-3d-section {
+  padding: 40px 20px;
+  background: linear-gradient(to right, #111, #222);
+  text-align: center;
+  color: #fff;
+}
+
+.model-3d-section iframe {
+  border: none;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
