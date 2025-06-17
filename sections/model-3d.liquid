@@ -1,4 +1,5 @@
 <section class="model-3d-section">
+  <div class="background-overlay"></div>
   <div class="sketchfab-embed-wrapper">
     <iframe
       title="{{ settings.model_title }}"
@@ -18,9 +19,46 @@
   </div>
 </section>
 
+<style>
+  .model-3d-section {
+    position: relative;
+    padding: 60px 20px;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+    z-index: 1;
+  }
+
+  .model-3d-section .background-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    background: radial-gradient(circle at center, #1a1a1a, #000);
+    animation: pulseBackground 6s infinite alternate ease-in-out;
+  }
+
+  .model-3d-section .sketchfab-embed-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .model-3d-section iframe {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+  }
+
+  @keyframes pulseBackground {
+    0% { background-color: #111; }
+    100% { background-color: #1f1f1f; }
+  }
+</style>
+
 {% schema %}
 {
-  "name": "Modelo 3D Sketchfab",
+  "name": "Modelo 3D con fondo animado",
   "settings": [
     {
       "type": "url",
@@ -37,7 +75,7 @@
   ],
   "presets": [
     {
-      "name": "Modelo 3D"
+      "name": "Modelo 3D con fondo animado"
     }
   ]
 }
