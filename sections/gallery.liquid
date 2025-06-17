@@ -1,0 +1,35 @@
+<!-- gallery.liquid: Galería de imágenes personalizable -->
+<section class="gallery">
+  <h2>Galería de Imágenes</h2>
+  <div class="gallery-grid">
+    {% for block in section.blocks %}
+      <div class="gallery-item">
+        <img src="{{ block.settings.image | img_url: 'large' }}" alt="Imagen de galería">
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Galería de Imágenes",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Imagen",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Selecciona una imagen"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [{
+    "name": "Galería de Imágenes"
+  }]
+}
+{% endschema %}

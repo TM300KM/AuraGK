@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Configuraciones generales",
+    "settings": [
+      {
+        "type": "text",
+        "id": "theme_name",
+        "label": "Nombre del tema",
+        "default": "AuraGK"
+      }
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+<!-- products.liquid: Muestra una cuadrícula de productos destacados -->
+<section class="products">
+  <h2>Productos Destacados</h2>
+  <div class="product-grid">
+    {% for product in collections.frontpage.products %}
+      <div class="product-card">
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.price | money }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
