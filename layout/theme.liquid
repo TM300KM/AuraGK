@@ -10,9 +10,7 @@
   <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
 </head>
 <body>
-  {% if section.settings.header_enabled != false %}
-    {% section 'header' %}
-  {% endif %}
+  {% section 'header' %}
   
   <main role="main">
     {{ content_for_layout }}
@@ -21,8 +19,6 @@
   {% if section.settings.footer_enabled != false %}
     {% section 'footer' %}
   {% endif %}
-
-  <!-- Justo antes de cerrar </body> -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="{{ 'particles-config.js' | asset_url }}" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>

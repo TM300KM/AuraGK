@@ -1,19 +1,25 @@
-if (typeof particlesJS !== "undefined" && document.getElementById("particles-js")) {
-  particlesJS("particles-js", {
-    "particles": {
-      "number": { "value": 100 },
-      "color": { "value": "#ffdd00" },
-      "shape": { "type": "circle" },
-      "opacity": { "value": 0.6, "random": true },
-      "size": { "value": 2, "random": true },
-      "move": { "speed": 1, "direction": "top", "out_mode": "out" }
-    },
-    "interactivity": {
-      "events": {
-        "onhover": { "enable": true, "mode": "repulse" }
-      }
-    }
-  });
-} else {
-  console.error("particles.js library is not loaded or #particles-js element is missing.");
-}
+document.addEventListener("DOMContentLoaded", function() {
+  if (typeof particlesJS === "function") {
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3 },
+        size: { value: 3 },
+        move: { enable: true, speed: 1.5 }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" }
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 }
+        }
+      },
+      retina_detect: true
+    });
+  } else {
+    console.error("particlesJS is not defined. Make sure particles.js is loaded.");
+  }
+});
