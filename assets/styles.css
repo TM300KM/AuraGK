@@ -128,7 +128,7 @@ canvas {
 /* PRODUCTOS */
 .products {
   padding: 2rem;
-  background-color: #ffffff00;
+  background-color: #00000000;
   text-align: center;
 }
 
@@ -139,9 +139,9 @@ canvas {
 }
 
 .product-card {
-  border: 1px solid #ffffff;
+  border: 1px solid #ff0000;
   padding: 1rem;
-  background-color: #fff;
+  background-color: #00000000;
   transition: transform 0.2s;
 }
 
