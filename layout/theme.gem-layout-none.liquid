@@ -1,0 +1,29 @@
+{% comment %}
+	GEMPAGES BUILDER (https://apps.shopify.com/gempages)
+
+	You SHOULD NOT modify source code in this file because
+	It is automatically generated from GEMPAGES BUILDER
+	Try to edit page with the live editor.
+{% endcomment %}
+<!DOCTYPE html>
+<html lang="{{ request.locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page_title }} - {{ shop.name }}</title>
+
+  {{ content_for_header }}
+
+  <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
+</head>
+<body>
+<div class="gem-container">
+	{{ content_for_layout }}
+</div><!-- end .gem-container --></body> -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="{{ 'particles-config.js' | asset_url }}" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
+  <script src="{{ 'background.js' | asset_url }}" defer></script>
+  <script src="{{ 'script.js' | asset_url }}" defer></script>
+</body>
+</html>
