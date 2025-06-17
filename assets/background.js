@@ -52,19 +52,7 @@ for (let i = 0; i < cubeCount; i++) {
 camera.position.z = 20;
 
 // Animación de rotación y movimiento sutil de cubos
-function animate() {
-  requestAnimationFrame(animate);
-
-  cubes.forEach((cube, idx) => {
-    cube.rotation.x += 0.005 + idx * 0.001;
-    cube.rotation.y += 0.01 + idx * 0.002;
-    cube.position.y += Math.sin(Date.now() * 0.001 + idx) * 0.001;
-  });
-
-  renderer.render(scene, camera);
-}
-
-animate();
+// (La función animate se define más abajo con interacción de mouse)
 
 // Adaptar al redimensionar ventana
 window.addEventListener('resize', () => {
