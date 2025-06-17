@@ -10,13 +10,17 @@
   <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
 </head>
 <body>
-  {% section 'header' %}
+  {% if section.settings.header_enabled != false %}
+    {% section 'header' %}
+  {% endif %}
   
   <main role="main">
     {{ content_for_layout }}
   </main>
   
-  {% section 'footer' %}
+  {% if section.settings.footer_enabled != false %}
+    {% section 'footer' %}
+  {% endif %}
 
   <!-- Justo antes de cerrar </body> -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>

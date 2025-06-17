@@ -1,4 +1,4 @@
-if (typeof particlesJS !== "undefined") {
+if (typeof particlesJS !== "undefined" && document.getElementById("particles-js")) {
   particlesJS("particles-js", {
     "particles": {
       "number": { "value": 100 },
@@ -15,5 +15,5 @@ if (typeof particlesJS !== "undefined") {
     }
   });
 } else {
-  console.error("particles.js library is not loaded.");
+  console.error("particles.js library is not loaded or #particles-js element is missing.");
 }

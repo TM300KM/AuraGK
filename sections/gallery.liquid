@@ -4,7 +4,9 @@
   <div class="gallery-grid">
     {% for block in section.blocks %}
       <div class="gallery-item">
-        <img src="{{ block.settings.image | img_url: 'large' }}" alt="Imagen de galería">
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | img_url: 'large' }}" alt="Imagen de galería">
+        {% endif %}
       </div>
     {% endfor %}
   </div>

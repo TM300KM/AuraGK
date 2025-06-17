@@ -50,6 +50,10 @@ body {
   text-align: center;
   background-color: #000;
   color: #ffd700;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
 }
 .video-wrapper {
   position: relative;
@@ -195,16 +199,9 @@ canvas {
     gap: 10px;
   }
 
-  .site-nav ul {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-}
-
-/*Seccion para video*/
-.video-section {
-  position: relative;
+.site-nav ul {
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
   height: 400px;
   overflow: hidden;
@@ -239,4 +236,5 @@ canvas {
   max-width: 100%;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
 }

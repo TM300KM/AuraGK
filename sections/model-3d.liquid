@@ -5,13 +5,10 @@
       title="{{ settings.model_title }}"
       frameborder="0"
       allowfullscreen
-      mozallowfullscreen="true"
-      webkitallowfullscreen="true"
+      mozallowfullscreen
+      webkitallowfullscreen
       allow="autoplay; fullscreen; xr-spatial-tracking"
       xr-spatial-tracking
-      execution-while-out-of-viewport
-      execution-while-not-rendered
-      web-share
       width="100%"
       height="500"
       src="{{ settings.model_url }}">
@@ -56,7 +53,7 @@
   }
 </style>
 
-{% schema %}
+{{% schema %}}
 {
   "name": "Modelo 3D con fondo animado",
   "settings": [
@@ -79,4 +76,4 @@
     }
   ]
 }
-{% endschema %}
+{{% endschema %}}

@@ -2,14 +2,18 @@
 <section class="products">
   <h2>Productos Destacados</h2>
   <div class="product-grid">
-    {% for product in collections.frontpage.products %}
-      <div class="product-card">
-        <a href="{{ product.url }}">
-          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-          <h3>{{ product.title }}</h3>
-          <p>{{ product.price | money }}</p>
-        </a>
-      </div>
-    {% endfor %}
+    {% if collections.frontpage and collections.frontpage.products.size > 0 %}
+      {% for product in collections.frontpage.products %}
+        <div class="product-card">
+          <a href="{{ product.url }}">
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No hay productos destacados disponibles.</p>
+    {% endif %}
   </div>
 </section>

@@ -1,8 +1,10 @@
 <section class="video-section">
-  <video autoplay muted loop playsinline class="background-video">
-    <source src="{{ settings.video_url }}" type="video/mp4" />
-    Tu navegador no soporta video HTML5.
-  </video>
+  {% if settings.video_url != blank %}
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="{{ settings.video_url }}" type="video/mp4" />
+      Tu navegador no soporta video HTML5.
+    </video>
+  {% endif %}
 
   <div class="video-overlay">
     <h2>{{ settings.title }}</h2>
@@ -12,11 +14,12 @@
 
 {% schema %}
 {
-  "name": "Video de fondo",
-  "settings": [
     {
-      "type": "url",
+      "type": "text",
       "id": "video_url",
+      "label": "URL del video",
+      "input_type": "url"
+    },
       "label": "URL del video"
     },
     {
