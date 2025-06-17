@@ -1,124 +1,22 @@
 /* styles.css: Estilos globales del tema Shopify */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #ffffff00;
-}
 
-/* Estilos para la sección de productos */
-.products {
-  padding: 2rem;
-  background-color: #000000;
-  text-align: center;
-}
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-}
-.product-card {
-  border: 1px solid #ddd;
-  padding: 1rem;
-  background-color: #fff;
-  transition: transform 0.2s;
-}
-.product-card:hover {
-  transform: scale(1.05);
-}
-
-/* Estilos para la galería de imágenes */
-.gallery {
-  padding: 2rem;
-  background-color: #000000;
-  text-align: center;
-}
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* Estilos para la sección de video */
-.video-section {
-  padding: 2rem;
-  text-align: center;
-  background-color: #000;
-  color: #ffffff;
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-}
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-}
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/*Estilo para dar formato texto*/
-.hero {
-  background: linear-gradient(to right, #f3f4f6, #e5e7eb);
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  color: #111827;
-  margin-bottom: 0.5rem;
-}
-
-.hero p {
-  font-size: 1.5rem;
-  color: #4b5563;
-}
-
-/*Imagen Logo*/
-.site-logo {
-  height: 85px;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-/*Integracion*/
+/* RESET Y FUENTE */
 body, html {
-  body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.4); /* oscurece ligeramente el fondo */
-  z-index: -1;
-}
-
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: url('https://cdn.shopify.com/s/files/1/0704/2485/4665/files/ChatGPT_Image_17_jun_2025_01_54_58_p.m..png?v=1750190131') no-repeat center center fixed;
   background-size: cover;
   color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* CANVAS Y PARTICULAS */
 canvas {
   position: fixed !important;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100% !important;
   height: 100% !important;
   z-index: -1;
@@ -130,22 +28,22 @@ canvas {
   position: fixed;
   width: 100%;
   height: 100%;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   z-index: -2;
   background: transparent;
 }
-/* Header General */
+
+/* ENCABEZADO */
 .site-header {
-  background-color: #111; /* fondo oscuro */
-  color: #ffffff; /* texto dorado */
+  background-color: #111;
+  color: #ffffff;
   padding: 15px 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* Contenedor para centrar contenido */
 .site-header .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -155,12 +53,7 @@ canvas {
   padding: 0 20px;
 }
 
-/* Logo */
-.site-logo a {
-  color: #000000;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.8rem;
+.site-logo {
   display: flex;
   align-items: center;
 }
@@ -171,7 +64,15 @@ canvas {
   object-fit: contain;
 }
 
-/* Navegación */
+.site-logo a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+}
+
 .site-nav ul {
   list-style: none;
   display: flex;
@@ -193,7 +94,7 @@ canvas {
   color: #ffffff;
 }
 
-/* Botón carrito */
+/* BOTÓN CARRITO */
 .cart-button a {
   color: #ffffff;
   font-size: 2rem;
@@ -206,25 +107,92 @@ canvas {
   color: #ffffff;
 }
 
-/* Responsive: menú vertical en pantallas pequeñas */
-@media (max-width: 768px) {
-  .site-header .container {
-    flex-direction: column;
-    gap: 10px;
-  }
+/* SECCIÓN HERO */
+.hero {
+  background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+  padding: 60px 20px;
+  text-align: center;
+}
 
-.site-nav ul {
-  flex-direction: column;
-  gap: 10px;
+.hero h1 {
+  font-size: 3rem;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  color: #4b5563;
+}
+
+/* PRODUCTOS */
+.products {
+  padding: 2rem;
+  background-color: #000000;
+  text-align: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  background-color: #fff;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+/* GALERÍA */
+.gallery {
+  padding: 2rem;
+  background-color: #000000;
+  text-align: center;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* VIDEO */
+.video-section {
+  padding: 2rem;
+  text-align: center;
+  background-color: #000;
+  color: #ffffff;
+  position: relative;
   width: 100%;
   height: 400px;
   overflow: hidden;
 }
 
-.background-video {
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 .video-overlay {
@@ -236,4 +204,24 @@ canvas {
   text-align: center;
   text-shadow: 0 0 8px #000;
 }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .site-header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+  }
+
+  .background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
