@@ -9,7 +9,7 @@ body {
 /* Estilos para la sección de productos */
 .products {
   padding: 2rem;
-  background-color: #f8f8f8;
+  background-color: #000000;
   text-align: center;
 }
 .product-grid {
@@ -96,9 +96,13 @@ body {
 
 /*Integracion*/
 body, html {
-  margin: 0; padding: 0; overflow-x: hidden; height: 100%;
-  background-color: #000000; /* fondo negro */
-  color: #ffffff; /* texto dorado */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+  background: url('https://cdn.shopify.com/s/files/1/0704/2485/4665/files/ChatGPT_Image_17_jun_2025_01_54_58_p.m..png?v=1750190131') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
