@@ -116,3 +116,88 @@ canvas {
   z-index: -2;
   background: transparent;
 }
+/* Header General */
+.site-header {
+  background-color: #111; /* fondo oscuro */
+  color: #ffd700; /* texto dorado */
+  padding: 15px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Contenedor para centrar contenido */
+.site-header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* Logo */
+.site-logo a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.site-logo img {
+  max-height: 50px;
+  max-width: 150px;
+  object-fit: contain;
+}
+
+/* Navegación */
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  color: #ffbf00;
+}
+
+/* Botón carrito */
+.cart-button a {
+  color: #ffd700;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cart-button a:hover,
+.cart-button a:focus {
+  color: #ffbf00;
+}
+
+/* Responsive: menú vertical en pantallas pequeñas */
+@media (max-width: 768px) {
+  .site-header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
