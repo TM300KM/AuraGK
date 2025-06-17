@@ -91,7 +91,7 @@ canvas {
 
 .site-nav a:hover,
 .site-nav a:focus {
-  color: #ffffff;
+  color: #ffffff00;
 }
 
 /* BOTÓN CARRITO */
@@ -109,7 +109,7 @@ canvas {
 
 /* SECCIÓN HERO */
 .hero {
-  background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+  background: linear-gradient(to right, #f3f4f600, #e5e7eb00);
   padding: 60px 20px;
   text-align: center;
 }
