@@ -96,7 +96,7 @@ canvas {
 
 /* BOTÓN CARRITO */
 .cart-button a {
-  color: #ffffff;
+  color: #ffffff00;
   font-size: 2rem;
   text-decoration: none;
   transition: color 0.3s ease;
