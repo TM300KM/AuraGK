@@ -1,14 +1,23 @@
-<!-- theme.liquid: Estructura base del tema -->
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <title>{{ settings.theme_name }}</title>
-    <link href="{{ 'styles.css' | asset_url }}" rel="stylesheet">
-    <script src="{{ 'script.js' | asset_url }}" defer></script>
-  </head>
-  <body>
-    {% section 'hero' %}
+<html lang="{{ request.locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page_title }} - {{ shop.name }}</title>
+
+  {{ content_for_header }}
+
+  <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
+</head>
+<body>
+  {% section 'header' %}
+  
+  <main role="main">
     {{ content_for_layout }}
-  </body>
+  </main>
+  
+  {% section 'footer' %}
+  
+  <script src="{{ 'script.js' | asset_url }}" defer></script>
+</body>
 </html>
