@@ -96,7 +96,7 @@ canvas {
 
 /* BOTÓN CARRITO */
 .cart-button a {
-  color: #ffffff;
+  color: #000000;
   font-size: 2rem;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -104,7 +104,7 @@ canvas {
 
 .cart-button a:hover,
 .cart-button a:focus {
-  color: #ffffff;
+  color: #000000;
 }
 
 /* SECCIÓN HERO */
@@ -122,7 +122,7 @@ canvas {
 
 .hero p {
   font-size: 1.5rem;
-  color: #4b5563;
+  color: #ffffff00;
 }
 
 /* PRODUCTOS */
