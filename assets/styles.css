@@ -272,3 +272,10 @@ a:hover, button:hover {
   color: #ff0000;
   text-shadow: 0 0 5px #ff0000;
 }
+
+/* Estilos para mensajes de error */
+.error-message {
+  color: #ff0000;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
