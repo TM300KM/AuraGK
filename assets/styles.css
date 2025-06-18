@@ -279,3 +279,14 @@ a:hover, button:hover {
   font-size: 0.9rem;
   margin-top: 0.5rem;
 }
+
+/* Estilos para iconos */
+.icon {
+  font-size: 1.5rem;
+  color: #ffd700;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #e0a800;
+}
