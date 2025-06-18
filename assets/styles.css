@@ -91,7 +91,8 @@ canvas {
 
 .site-nav a:hover,
 .site-nav a:focus {
-  color: #ffffff00;
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
 }
 
 /* BOTÓN CARRITO */
@@ -147,6 +148,7 @@ canvas {
 
 .product-card:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* GALERÍA */
@@ -224,11 +226,51 @@ canvas {
     height: 100%;
     object-fit: cover;
   }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .product-card {
+    padding: 0.5rem;
+  }
+
+  .gallery-item img {
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .product-card {
+    padding: 0.5rem;
+  }
 }
 
 /* Estilos para botones */
 button, .btn {
-  background-color: #ffffff00;
+  background-color: #ffd700;
   color: #000000;
   border: none;
   padding: 10px 20px;
@@ -239,18 +281,18 @@ button, .btn {
 }
 
 button:hover, .btn:hover {
-  background-color: #ffffff00;
+  background-color: #e0a800;
 }
 
 .cart-button a {
-  background-color: #ff000000;
+  background-color: #ffd700;
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 .cart-button a:hover {
-  background-color: #ffffffd0;
+  background-color: #e0a800;
 }
 
 /* Transiciones suaves para elementos interactivos */
@@ -269,8 +311,36 @@ a:hover, button:hover {
 
 .site-nav a:hover,
 .site-nav a:focus {
-  color: #ff0000;
-  text-shadow: 0 0 5px #ff0000;
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* Estilos para formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, textarea, select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #ffd700;
+  outline: none;
+}
+
+button, .btn {
+  align-self: flex-start;
 }
 
 /* Estilos para mensajes de error */
