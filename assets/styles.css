@@ -1,7 +1,7 @@
 /*Texto de la página*/
 .typing-title {
   overflow: hidden;
-  border-right: 2px solid rgb(0, 0, 0);
+  border-right: 2px solid rgb(255, 0, 0);
   white-space: nowrap;
   margin: 0 auto;
   animation: typing 3s steps(30, end), blink 0.7s step-end infinite;
@@ -27,7 +27,7 @@
   font-size: 1rem;
   font-weight: 600;
   background: linear-gradient(135deg, #ff3c3c, #ff9d00);
-  color: #000000;
+  color: #ff0000;
   border: none;
   border-radius: 50px;
   overflow: hidden;
@@ -43,7 +43,7 @@
   left: -100%;
   width: 300%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(255, 0, 0);
   transform: skewX(-45deg);
   transition: all 0.6s ease;
   z-index: 0;
@@ -59,11 +59,11 @@
 
 /*Cards de producto con efecto hover*/
 .product-card {
-  background: #111;
-  color: #000000;
+  background: #ff0000;
+  color: #ff0000;
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgb(255, 0, 0);
   transition: transform 0.4s, box-shadow 0.4s;
   text-align: center;
 }
@@ -78,7 +78,7 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 0, 0);
   text-align: center;
 }
 
@@ -98,8 +98,8 @@
 
 /*Animacion de carga de la página*/
 .loader {
-  border: 8px solid #222;
-  border-top: 8px solid #ff3c3c;
+  border: 8px solid #ff0000;
+  border-top: 8px solid #ff0000;
   border-radius: 50%;
   width: 60px;
   height: 60px;
