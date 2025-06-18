@@ -252,3 +252,23 @@ button:hover, .btn:hover {
 .cart-button a:hover {
   background-color: #e0000023;
 }
+
+/* Transiciones suaves para elementos interactivos */
+a, button {
+  transition: all 0.3s ease;
+}
+
+a:hover, button:hover {
+  opacity: 0.8;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
