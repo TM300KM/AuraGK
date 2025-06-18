@@ -270,5 +270,5 @@ a:hover, button:hover {
 .site-nav a:hover,
 .site-nav a:focus {
   color: #ffd700;
-  text-shadow: 0 0 5px #ffd700;
+  text-shadow: 0 0 5px #ff0000;
 }
