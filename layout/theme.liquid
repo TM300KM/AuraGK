@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <div class="loader"></div>
   <meta charset="UTF-8" />
   <title>title</title>
 </head>
 <body>
+  <div class="loader"></div>
   <h1 class="typing-title">Bienvenido a AuraGK</h1>
 
   <a href="#" class="btn-animated">Explorar</a>
@@ -15,20 +15,21 @@
   <a href="#" class="btn-animated">Iniciar sesión</a>
   <a href="#" class="btn-animated">Carrito</a>
   <a href="#" class="btn-animated">Buscar</a>
+
+  <div class="product-card">
+    <img src="producto.jpg" alt="Producto">
+    <h3>Nombre del producto</h3>
+    <p>$199.00</p>
+  </div>
+  <section class="hero-video">
+    <video autoplay muted loop class="background-video">
+      <source src="{{ 'video.mp4' | asset_url }}" type="video/mp4">
+    </video>
+    <div class="overlay-content">
+      <h1>Estilo que impacta</h1>
+      <p>Explora lo mejor de la moda y tecnología</p>
+      <a href="#productos" class="btn-animated">Ver productos</a>
+    </div>
+  </section>
 </body>
 </html>
-<div class="product-card">
-  <img src="producto.jpg" alt="Producto">
-  <h3>Nombre del producto</h3>
-  <p>$199.00</p>
-</div>
-<section class="hero-video">
-  <video autoplay muted loop class="background-video">
-    <source src="{{ 'video.mp4' | asset_url }}" type="video/mp4">
-  </video>
-  <div class="overlay-content">
-    <h1>Estilo que impacta</h1>
-    <p>Explora lo mejor de la moda y tecnología</p>
-    <a href="#productos" class="btn-animated">Ver productos</a>
-  </div>
-</section>
