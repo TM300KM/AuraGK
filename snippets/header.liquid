@@ -303,7 +303,7 @@
     connectedCallback() {
       this.header = document.querySelector('.section-header');
       this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
-      this.headerBounds = {};
+      this.headerBounds = { top: 0, bottom: 0 };
 
       this.setHeaderHeight();
 

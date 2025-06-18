@@ -99,7 +99,7 @@
 /*Animacion de carga de la página*/
 .loader {
   border: 8px solid #ff0000;
-  border-top: 8px solid #ff0000;
+  border-top: 8px solid #fff;
   border-radius: 50%;
   width: 60px;
   height: 60px;
