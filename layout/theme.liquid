@@ -16,10 +16,6 @@
     {{ content_for_layout }}
   </main>
 
-  {% if section.settings.footer_enabled != false %}
-    {% section 'footer' %}
-  {% endif %}
-
   <!-- Incluir scripts al final del body para mejorar el rendimiento -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
