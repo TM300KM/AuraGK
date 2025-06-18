@@ -1,7 +1,7 @@
 /*Texto de la página*/
 .typing-title {
   overflow: hidden;
-  border-right: 2px solid white;
+  border-right: 2px solid rgb(0, 0, 0);
   white-space: nowrap;
   margin: 0 auto;
   animation: typing 3s steps(30, end), blink 0.7s step-end infinite;
@@ -17,7 +17,7 @@
 
 @keyframes blink {
   from, to { border-color: transparent }
-  50% { border-color: white }
+  50% { border-color: rgb(255, 0, 0) }
 }
 
 /*Botono animado con efecto de onda*/
@@ -27,7 +27,7 @@
   font-size: 1rem;
   font-weight: 600;
   background: linear-gradient(135deg, #ff3c3c, #ff9d00);
-  color: #fff;
+  color: #000000;
   border: none;
   border-radius: 50px;
   overflow: hidden;
@@ -60,7 +60,7 @@
 /*Cards de producto con efecto hover*/
 .product-card {
   background: #111;
-  color: #fff;
+  color: #000000;
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
@@ -78,7 +78,7 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
 }
 
