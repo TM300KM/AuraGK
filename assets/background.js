@@ -1,89 +1,65 @@
-// Configuración básica
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  60, window.innerWidth / window.innerHeight, 0.1, 1000
-);
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0x000000, 0); // fondo transparente para overlay
-document.body.appendChild(renderer.domElement);
-renderer.domElement.style.position = 'fixed';
-renderer.domElement.style.top = '0';
-renderer.domElement.style.left = '0';
-renderer.domElement.style.zIndex = '-1';
-renderer.domElement.style.width = '100%';
-renderer.domElement.style.height = '100%';
+// background.js
 
-// Luzes doradas para efecto lujo
-const light1 = new THREE.PointLight(0xffd700, 1.5, 200);
-light1.position.set(50, 50, 50);
-scene.add(light1);
-
-const light2 = new THREE.AmbientLight(0x404040, 1.2);
-scene.add(light2);
-
-// Crear material metálico dorado para objetos
-const goldMaterial = new THREE.MeshStandardMaterial({
-  color: 0xffd700,
-  metalness: 1,
-  roughness: 0.2,
-  emissive: 0x442a00,
-  emissiveIntensity: 0.3
-});
-
-// Crear varios cubos 3D metálicos (ejemplo de "armamento" abstracto)
-const cubes = [];
-const cubeCount = 15;
-
-for (let i = 0; i < cubeCount; i++) {
-  const size = Math.random() * 1.5 + 0.5;
-  const geometry = new THREE.BoxGeometry(size, size, size);
-  const cube = new THREE.Mesh(geometry, goldMaterial);
-  cube.position.set(
-    (Math.random() - 0.5) * 20,
-    (Math.random() - 0.5) * 10,
-    (Math.random() - 0.5) * 20
-  );
-  cubes.push(cube);
-  scene.add(cube);
-}
-
-// Posición cámara inicial
-camera.position.z = 20;
-
-// Animación de rotación y movimiento sutil de cubos
-// (La función animate se define más abajo con interacción de mouse)
-
-// Adaptar al redimensionar ventana
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
+document.addEventListener('DOMContentLoaded', function () {
+  // Configuración básica de Three.js
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
-});
+  document.body.appendChild(renderer.domElement);
 
-//Interacción con el mouse
-let mouseX = 0, mouseY = 0;
-document.addEventListener('mousemove', (event) => {
-  mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-  mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-});
+  // Crear una geometría y un material para las partículas
+  const geometry = new THREE.BufferGeometry();
+  const vertices = [];
+  for (let i = 0; i < 1000; i++) {
+    vertices.push(Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1);
+  }
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 
-function animate() {
-  requestAnimationFrame(animate);
+  const material = new THREE.PointsMaterial({ color: 0xffffff, size: 0.01 });
+  const particles = new THREE.Points(geometry, material);
+  scene.add(particles);
 
-  cubes.forEach((cube, idx) => {
-    cube.rotation.x += 0.005 + idx * 0.001;
-    cube.rotation.y += 0.01 + idx * 0.002;
-    cube.position.y += Math.sin(Date.now() * 0.001 + idx) * 0.001;
+  // Configurar la cámara
+  camera.position.z = 5;
 
-    // Movimiento de cámara ligero con el mouse
-    camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
-    camera.position.y += (mouseY * 2 - camera.position.y) * 0.05;
-    camera.lookAt(scene.position);
+  // Función de animación
+  function animate() {
+    requestAnimationFrame(animate);
+
+    // Rotar las partículas
+    particles.rotation.x += 0.01;
+    particles.rotation.y += 0.01;
+
+    renderer.render(scene, camera);
+  }
+
+  // Manejar eventos de mouse y touch
+  document.addEventListener('mousemove', onMouseMove, false);
+  document.addEventListener('touchmove', onTouchMove, false);
+
+  function onMouseMove(event) {
+    const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+    const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    particles.rotation.x = mouseY * 0.5;
+    particles.rotation.y = mouseX * 0.5;
+  }
+
+  function onTouchMove(event) {
+    const touch = event.touches[0];
+    const touchX = (touch.clientX / window.innerWidth) * 2 - 1;
+    const touchY = -(touch.clientY / window.innerHeight) * 2 + 1;
+    particles.rotation.x = touchY * 0.5;
+    particles.rotation.y = touchX * 0.5;
+  }
+
+  // Iniciar la animación
+  animate();
+
+  // Ajustar el tamaño del renderizador al cambiar el tamaño de la ventana
+  window.addEventListener('resize', function () {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
   });
-
-  renderer.render(scene, camera);
-}
-
-// Iniciar la animación
-animate();
+});
