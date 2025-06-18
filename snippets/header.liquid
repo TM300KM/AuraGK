@@ -123,7 +123,7 @@
       assign social_links = true
     endif
 
-    if localization.available_countries.size > 1 and section.settings.enable_country_selector or section.settings.enable_language_selector and localization.available_languages.size > 1
+    if (localization.available_countries.size > 1 and section.settings.enable_country_selector) or (section.settings.enable_language_selector and localization.available_languages.size > 1)
       assign localization_forms = true
     endif
   -%}
